@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>imageName</key>
+		<string>person</string>
+		<key>title</key>
+		<string>账号</string>
+	</dict>
+	<dict>
+		<key>imageName</key>
+		<string>lock</string>
+		<key>title</key>
+		<string>本地口令</string>
+	</dict>
+	<dict>
+		<key>imageName</key>
+		<string>message</string>
+		<key>title</key>
+		<string>收信箱数据导入</string>
+	</dict>
+	<dict>
+		<key>imageName</key>
+		<string>screen</string>
+		<key>title</key>
+		<string>网络账号数据导入</string>
+	</dict>
+	<dict>
+		<key>imageName</key>
+		<string>clock</string>
+		<key>title</key>
+		<string>其他</string>
+	</dict>
+</array>
+</plist>
