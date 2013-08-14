@@ -45,6 +45,21 @@
     //添加通知观察者，观察是否需要将tableview上滚，以免子界面textField被键盘挡住
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(scrollUp:) name:@"TableViewScrollUp" object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(scrollDown) name:@"TableViewScrollDown" object:nil];
+    
+    //初始化子界面
+    _subVC0 = [[KOMImportViewController alloc]initWithState:NormalState isImported:NO];
+    _subVC2 = [[KOMImportViewController alloc]initWithState:EmailState isImported:_emailIsImported];
+    _subVC3 = [[KOMImportViewController alloc]initWithState:NetAccState isImported:_netAccIsImported];
+    
+    _subVC2.emailAccount  = _email_account;
+    _subVC2.password = _email_password;
+    _subVC2.emailDate = self.email_date;
+    _subVC2.father = self;
+    
+    _subVC3.netAccount = _net_account;
+    _subVC3.password = _net_password;
+    _subVC3.netDate = _net_date;
+    _subVC3.father = self;
 }
 
 //tableview上滚
@@ -94,31 +109,14 @@
 {
     if(indexPath.row == 1 || indexPath.row == 4) return ;
     
-    //账号界面
-    if (indexPath.row == 0)  _subVC = [[KOMImportViewController alloc] initWithState:NormalState isImported:NO];
-        
-    else if (indexPath.row == 2) {
-        _subVC = [[KOMImportViewController alloc] initWithState:EmailState isImported:_emailIsImported];
-        
-        if (_emailIsImported ) {
-            //已经导入的，传递密码
-            _subVC.account  = _email_account;
-            _subVC.password = _email_password;
-        }
-    }   //收信箱数据导入
-    else if (indexPath.row == 3) {
-        _subVC = [[KOMImportViewController alloc] initWithState:NetAccState isImported:_netAccIsImported];
-        
-        if (_netAccIsImported) {
-            _subVC.account = _net_account;
-            _subVC.password = _net_password;
-        }
-    }   //网络账户数据导入
+    KOMImportViewController *showVC = nil;
     
-    _subVC.father = self;
+    if (indexPath.row == 0)         showVC = _subVC0;   //账号界面
+    else if (indexPath.row == 2)    showVC = _subVC2;   //收信箱数据导入
+    else if (indexPath.row == 3)    showVC = _subVC3;   //网络账户数据导入
     
     //展开子视图
-    [_tableView openFolderAtIndexPath:indexPath WithContentView:_subVC.view
+    [_tableView openFolderAtIndexPath:indexPath WithContentView:showVC.view
                             openBlock:^(UIView *subClassView, CFTimeInterval duration, CAMediaTimingFunction *timingFunction){
                                 
                             }

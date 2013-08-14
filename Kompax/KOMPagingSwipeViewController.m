@@ -181,13 +181,10 @@ static NSUInteger kNumberOfPages = 3;
         [accountVC.currentVC.view endEditing:YES];
     }
     if (currentPage == 1) {
-        KOMMainPageViewController *mainVC = [_viewControllers objectAtIndex:1];
-        double cost = mainVC.totalCost;
-        double earn = mainVC.totalEarn;
-        double dif = earn - cost;   //收支差额
-        
-        
-        
+//        KOMMainPageViewController *mainVC = [_viewControllers objectAtIndex:1];
+//        double cost = mainVC.totalCost;
+//        double earn = mainVC.totalEarn;
+//        double dif = earn - cost;   //收支差额
     }
 }
 

@@ -570,8 +570,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "32"
          endingLineNumber = "32"
-         landmarkName = "@interface KOMSettingViewController"
-         landmarkType = "2">
+         landmarkName = "subVC3"
+         landmarkType = "19">
       </FileBreakpoint>
    </FileBreakpoints>
    <SymbolicBreakpoints>

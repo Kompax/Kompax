@@ -12,7 +12,7 @@
 #import "SSCheckBoxView.h"
 
 @class TableViewWithBlock;
-@interface KOMLoginViewController : UIViewController
+@interface KOMLoginViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 {
     BOOL isOpened;
     double moveInstance;
@@ -33,6 +33,10 @@
 @property (strong,nonatomic)   NSArray *way;    //存储下拉菜单内容
 @property(strong,nonatomic) NSArray *move;  //存储动态控件
 
+@property(strong,nonatomic) NSMutableDictionary *allAccountInfo;      //已在本地存储的所有用户名与密码信息
+@property(strong,nonatomic) NSMutableDictionary *accountInfo;         //根据当前输入框输入情况显示用户名
+
+@property(copy,nonatomic) NSString *archivingFilePath;                  //归档文件地址
 - (IBAction)login:(id)sender;
 
 @end

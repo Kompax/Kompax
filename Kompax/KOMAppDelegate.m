@@ -17,7 +17,7 @@ static NSString *baseURL = @"http://1.guhaiyue.sinaapp.com/index.php";  //基础
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     //初始化并正确设置client的值
-     NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"390840760@qq.com",@"email",@"123456",@"password", nil];
+     NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"390840761@qq.com",@"email",@"123456",@"password", nil];
 
     NSURL *url = [NSURL URLWithString:baseURL];
     _client = [[AFHTTPClient alloc]initWithBaseURL:url];
@@ -25,7 +25,7 @@ static NSString *baseURL = @"http://1.guhaiyue.sinaapp.com/index.php";  //基础
     
     //Login/login
     //
-    NSMutableURLRequest *request = [_client requestWithMethod:@"POST" path:@"Login/login" parameters:dict];
+    NSMutableURLRequest *request = [_client requestWithMethod:@"POST" path:@"Register/register" parameters:dict];
 
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         NSLog(@"%@",JSON);

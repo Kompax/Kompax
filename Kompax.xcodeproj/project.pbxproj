@@ -236,6 +236,7 @@
 		93AC95AD1798E808005E9E29 /* cb_glossy_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93AC95941798E808005E9E29 /* cb_glossy_on@2x.png */; };
 		93AC95B71798E808005E9E29 /* SSCheckBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AC95A11798E808005E9E29 /* SSCheckBoxView.m */; };
 		93AC95BB1798EAA1005E9E29 /* UIHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AC95BA1798EAA1005E9E29 /* UIHelpers.m */; };
+		93AD22B117BBE40700543304 /* NSMutableDictionary+MutableDeepCopy.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AD22B017BBE40700543304 /* NSMutableDictionary+MutableDeepCopy.m */; };
 		93B3782317A3728F003541D7 /* KOMCostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B3782217A3728F003541D7 /* KOMCostViewController.m */; };
 		93B3782617A3729B003541D7 /* KOMIncomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B3782517A3729B003541D7 /* KOMIncomeViewController.m */; };
 		93B3782917A372D2003541D7 /* KOMDebitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B3782817A372D2003541D7 /* KOMDebitViewController.m */; };
@@ -530,6 +531,8 @@
 		93AC95A11798E808005E9E29 /* SSCheckBoxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSCheckBoxView.m; sourceTree = "<group>"; };
 		93AC95B91798EAA1005E9E29 /* UIHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIHelpers.h; sourceTree = "<group>"; };
 		93AC95BA1798EAA1005E9E29 /* UIHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIHelpers.m; sourceTree = "<group>"; };
+		93AD22AF17BBE40700543304 /* NSMutableDictionary+MutableDeepCopy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+MutableDeepCopy.h"; sourceTree = "<group>"; };
+		93AD22B017BBE40700543304 /* NSMutableDictionary+MutableDeepCopy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+MutableDeepCopy.m"; sourceTree = "<group>"; };
 		93B3782117A3728F003541D7 /* KOMCostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOMCostViewController.h; sourceTree = "<group>"; };
 		93B3782217A3728F003541D7 /* KOMCostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KOMCostViewController.m; sourceTree = "<group>"; };
 		93B3782417A3729B003541D7 /* KOMIncomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOMIncomeViewController.h; sourceTree = "<group>"; };
@@ -1045,6 +1048,8 @@
 				939A6651179D190700F55B41 /* PullDown */,
 				939912C2179783B9003E8AC2 /* AFNetworking */,
 				93AC95871798E808005E9E29 /* SSCheckBoxView */,
+				93AD22AF17BBE40700543304 /* NSMutableDictionary+MutableDeepCopy.h */,
+				93AD22B017BBE40700543304 /* NSMutableDictionary+MutableDeepCopy.m */,
 			);
 			name = "Ancillary File";
 			sourceTree = "<group>";
@@ -1449,6 +1454,7 @@
 				93A0DBBC17B884D600450B4C /* UIView+screenshot.m in Sources */,
 				93A0DBC017B88EA800450B4C /* KOMSettingTableViewCell.m in Sources */,
 				93A0DBC517B8B05E00450B4C /* KOMImportViewController.m in Sources */,
+				93AD22B117BBE40700543304 /* NSMutableDictionary+MutableDeepCopy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

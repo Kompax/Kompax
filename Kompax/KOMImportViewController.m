@@ -9,6 +9,8 @@
 #import "KOMImportViewController.h"
 #import "KOMSettingViewController.h"
 
+static NSString *GLOBAL_TIMEFORMAT = @"yyyy-MM-dd HH:mm:ss";
+
 @interface KOMImportViewController ()
 
 @end
@@ -39,11 +41,43 @@
 -(void)loadView {
     [super loadView];
     
+    //设置子视图和滚动视图大小
+    self.view.frame = CGRectMake(0, 0, 320, 145);
+    _scrollView = [[UIScrollView alloc]initWithFrame:self.view.frame];
+    _scrollView.backgroundColor = [UIColor colorWithRed:232/255.0 green:239/255.0 blue:233/255.0 alpha:1.0];
+    [self.view addSubview:_scrollView];
+    
+    //初始化各Label初始属性
+    _accLabel= [[UILabel alloc]initWithFrame:CGRectMake(54+320, 56, 300, 26)];
+    [_accLabel setBackgroundColor:[UIColor clearColor]];
+    _accLabel.textColor = [UIColor blackColor];
+    _accLabel.textAlignment = NSTextAlignmentLeft;
+    _accLabel.font = [UIFont boldSystemFontOfSize:17];
+    
+    _timeLabel = [[UILabel alloc]initWithFrame:CGRectMake(54+320, 95, 300, 26)];
+    [_timeLabel setBackgroundColor:[UIColor clearColor]];
+    _timeLabel.textColor = [UIColor blackColor];
+    _timeLabel.textAlignment = NSTextAlignmentLeft;
+    _timeLabel.font = [UIFont boldSystemFontOfSize:17];
+    
+    _modify = [[UIButton alloc] initWithFrame:CGRectMake(270+320, 15, 40, 24)];
+    [_modify setBackgroundColor:[UIColor clearColor]];
+    _modify.titleLabel.font = [UIFont systemFontOfSize:17];
+    [_modify setTitleColor:[UIColor blackColor] forState:UIControlStateNormal]; //只能这样修改按钮字体颜色
+    [_modify setUserInteractionEnabled:YES];
+    [_modify addTarget:self action:@selector(modifyData) forControlEvents:UIControlEventTouchUpInside];
+    [_modify setTitle:@"修改" forState:UIControlStateNormal]; 
+
+    [self.scrollView addSubview:_modify];
+    [self.scrollView addSubview:_timeLabel];
+    [self.scrollView addSubview:_accLabel];
+    
     if (_state == NormalState) {
         [self loadNormalView];
     }   //载入账户界面
     else {
         if (self.isImported) {
+            [_scrollView setContentOffset:CGPointMake(320,0) animated:NO];
             [self loadImportedView];
         }   //账户已导入
         else {
@@ -52,7 +86,14 @@
     }
 }
 
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    _scrollView.scrollEnabled = NO;
+    _scrollView.contentSize = CGSizeMake(640, 48);
+}
+
 -(void)loadNormalView {
+    self.view.frame = CGRectMake(0, 0, 320, 38);
     UILabel *syn = [[UILabel alloc] initWithFrame:CGRectMake(71, 8, 65, 18)];
     [syn setText:@"同步数据"];
     [syn setBackgroundColor:[UIColor blackColor]];
@@ -61,50 +102,58 @@
     syn.font = [UIFont systemFontOfSize:15];
     
     self.view.backgroundColor = [UIColor whiteColor];
-    self.view.frame = CGRectMake(0, 0, 320, 30);
-    [self.view addSubview:syn];
+    [self.scrollView addSubview:syn];
 }
 
 //渲染已导入界面
 -(void)loadImportedView {
     
-    self.view.frame = CGRectMake(0, 0, 320, 48);
-    self.view.backgroundColor = [UIColor whiteColor];
-    
     //“数据导入”按钮
-    UILabel *syn = [[UILabel alloc] initWithFrame:CGRectMake(71, 8, 65, 20)];
-    [syn setText:@"数据导入"];
-    [syn setBackgroundColor:[UIColor blackColor]];
-    syn.textColor = [UIColor whiteColor];
-    syn.textAlignment = NSTextAlignmentCenter;
-    syn.font = [UIFont boldSystemFontOfSize:13];
-    [self.view addSubview:syn];
+    _syn = [[UILabel alloc] initWithFrame:CGRectMake(51+320, 12, 85, 26)];
+    [_syn setText:@"数据导入"];
+    [_syn setBackgroundColor:[UIColor blackColor]];
+    _syn.textColor = [UIColor whiteColor];
+    _syn.textAlignment = NSTextAlignmentCenter;
+    _syn.font = [UIFont boldSystemFontOfSize:18];
+    [self.scrollView addSubview:_syn];
     
     //账号显示标签
-    NSString *fullName =  [_accStateName stringByAppendingFormat:@"账号： %@",_account];
-    UILabel *accLabel = [[UILabel alloc]initWithFrame:CGRectMake(74, 30, 200, 15)];
-    [accLabel setText:fullName];
-    [accLabel setBackgroundColor:[UIColor clearColor]];
-    accLabel.textColor = [UIColor blackColor];
-    accLabel.textAlignment = NSTextAlignmentLeft;
-    accLabel.font = [UIFont boldSystemFontOfSize:13];
-    [self.view addSubview:accLabel];
+    NSString *fullName = nil;
     
-    //修改按钮
-    UIButton *modify = [[UIButton alloc] initWithFrame:CGRectMake(280, 30, 30, 15)];
-    [modify setTitle:@"修改" forState:UIControlStateNormal];
-    [modify setBackgroundColor:[UIColor clearColor]];
-    modify.titleLabel.font = [UIFont systemFontOfSize:13];
-    modify.titleLabel.textColor = [UIColor colorWithRed:152/255.0 green:156/255.0 blue:167/255.0 alpha:1.0];
-    [modify setUserInteractionEnabled:YES];
-    [modify addTarget:self action:@selector(modifyData) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:modify];
+    if (self.state == EmailState) {
+        fullName =  [_accStateName stringByAppendingFormat:@"账号： %@",_emailAccount];
+    }
+    else
+    {
+        fullName =  [_accStateName stringByAppendingFormat:@"账号： %@",_netAccount];
+    }
+     
+    [_accLabel setText:fullName];
+    
+    //初始化formatter，一定要设置显示模式，否则无法显示
+    NSTimeZone* localzone = [NSTimeZone localTimeZone];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    
+    formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:GLOBAL_TIMEFORMAT];
+    [formatter setTimeZone:localzone];
+    
+    //登录时间显示标签
+    NSString *fullTime =  nil;
+    if (self.state == EmailState) {
+        fullTime =  [NSString stringWithFormat:@"登录时间： %@",[formatter stringFromDate:self.emailDate]];
+    }
+    else
+    {
+        fullTime =  [NSString stringWithFormat:@"登录时间： %@",[formatter stringFromDate:self.netDate]];
+    }
+    
+    [_timeLabel setText:fullTime];
+  
 }
 
 //渲染未导入界面
 -(void)loadNotImportedView {
-    self.view.frame = CGRectMake(0, 0, 320, 145);
-    self.view.backgroundColor = [UIColor colorWithRed:232/255.0 green:239/255.0 blue:233/255.0 alpha:1.0];
     
     NSString *str1 = [NSString stringWithFormat:@"绑定%@账号",_accStateName];
     
@@ -115,7 +164,7 @@
     hintLabel.textColor = [UIColor blackColor];
     hintLabel.textAlignment = NSTextAlignmentLeft;
     hintLabel.font = [UIFont boldSystemFontOfSize:16];
-    [self.view addSubview:hintLabel];
+    [self.scrollView addSubview:hintLabel];
     
     //提示账户输入标签
     UILabel *accLabel = [[UILabel alloc]initWithFrame:CGRectMake(80, 48, 160, 15)];
@@ -124,7 +173,7 @@
     accLabel.textColor = [UIColor blackColor];
     accLabel.textAlignment = NSTextAlignmentLeft;
     accLabel.font = [UIFont boldSystemFontOfSize:16];
-    [self.view addSubview:accLabel];
+    [self.scrollView addSubview:accLabel];
     
     //提示密码输入标签
     UILabel *paswordLabel = [[UILabel alloc]initWithFrame:CGRectMake(80, 78, 60, 15)];
@@ -133,7 +182,7 @@
     paswordLabel.textColor = [UIColor blackColor];
     paswordLabel.textAlignment = NSTextAlignmentLeft;
     paswordLabel.font = [UIFont boldSystemFontOfSize:16];
-    [self.view addSubview:paswordLabel];
+    [self.scrollView addSubview:paswordLabel];
     
     //账户输入框
     _accountText = [[UITextField alloc]initWithFrame:CGRectMake(118, 43, 140, 20)];
@@ -155,9 +204,8 @@
      _passwordText.autocapitalizationType = UITextAutocapitalizationTypeNone;
     _passwordText.autocorrectionType = UITextAutocorrectionTypeNo;
     
-    NSLog(@"self.view: %@",self.view);
-    [self.view addSubview:_accountText];
-    [self.view addSubview:_passwordText];
+    [self.scrollView addSubview:_accountText];
+    [self.scrollView addSubview:_passwordText];
     
     //确认按钮
     _confirm = [[UIButton alloc] initWithFrame:CGRectMake(118, 113, 70, 20)];
@@ -169,37 +217,54 @@
     _confirm.titleLabel.font = [UIFont systemFontOfSize:15];
     [_confirm addTarget:self action:@selector(commit:) forControlEvents:UIControlEventTouchUpInside];
     
-    [self.view addSubview:_confirm];
+    [self.scrollView addSubview:_confirm];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    
     UITapGestureRecognizer *closeKeyboard = [[UITapGestureRecognizer alloc]initWithTarget:self  action:@selector(bgTap)];
-    [self.view addGestureRecognizer:closeKeyboard];
+    [self.scrollView addGestureRecognizer:closeKeyboard];
 }
 
 -(void)bgTap {
-    [self.view endEditing:YES];
+    [self.scrollView endEditing:YES];
 }
 
 //确认，登录，网络请求
 -(void)commit:(id)sender {
+     [_scrollView setContentOffset:CGPointMake(320, 0) animated:YES];
+    
+    if (_state == EmailState)  {
+        
+        self.emailAccount =_accountText.text;
+        self.emailDate = [NSDate date];
+        self.isImported = YES;
+        [self loadImportedView];
+        
+        //父视图控制器传递参数
+        KOMSettingViewController *father = (KOMSettingViewController *)self.father;
+        father.emailIsImported = YES;
+        father.email_account = self.emailAccount;
+    }
+    else
+    {
+        self.netAccount =_accountText.text;
+        self.netDate = [NSDate date];
+        self.isImported = YES;
+        [self loadImportedView];
+        
+        //父视图控制器传递参数
+        KOMSettingViewController *father = (KOMSettingViewController *)self.father;
+        father.netAccIsImported = YES;
+        father.net_account = self.netAccount;
+    }
 }
 
 -(void)modifyData {
-    KOMSettingViewController *father = (KOMSettingViewController *)self.father;
-    UIFolderTableView *table = (UIFolderTableView *)father.tableView;
-    
-    
-    for(UIView *view in [self.view subviews]) {
-        [view removeFromSuperview];
-    }
-    
-    [table performClose:nil];
-    [self loadNotImportedView];
-    [father expand:self atIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
+    [_scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
 }
 
 

@@ -12,6 +12,14 @@
 #import "EmailSelectionCell.h"
 #import "SelectionCell.h"
 #import "KOMAppDelegate.h"
+#import "XYAlertViewHeader.h"
+#import "KOMTabBarViewController.h"
+#import "NSMutableDictionary+MutableDeepCopy.h"
+
+#define ACCOUNT_INFO    @"accountInfo"
+#define EMAIL           @"email"
+#define PASSWORD        @"password"
+#define FILENAME        @"currentEmail.arc"
 
 @interface KOMLoginViewController ()
 
@@ -22,7 +30,38 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	[NSThread sleepForTimeInterval:1.0];
+    
+    //从磁盘中读取历史用户信息
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    _allAccountInfo = [defaults objectForKey:ACCOUNT_INFO];                 //总数据
+    
+    //按需要初始化allAccountInfo
+    if([_allAccountInfo count]==0) {
+        _allAccountInfo = [[NSMutableDictionary alloc]initWithCapacity:1];
+    }
+    _accountInfo = [_allAccountInfo mutableDeepCopy];                       //搜索出来的分数据
+    
+    NSArray *keys = [_accountInfo allKeys];
+    
+    //获取归档文件地址
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    _archivingFilePath = [documentsDirectory stringByAppendingPathComponent:FILENAME];
+    NSFileManager *fileManager = [NSFileManager defaultManager];            //文件管理者
+    
+    if ([fileManager fileExistsAtPath:_archivingFilePath]) {
+        NSString *currentEmail = [NSKeyedUnarchiver unarchiveObjectWithFile:_archivingFilePath];
+        _mailField.text = currentEmail;
+    }
+    
+    _passwordField.text = [_allAccountInfo objectForKey:_mailField.text];
+    
+    BOOL checked = false;
+    
+    if (_passwordField.text.length > 0) {
+        checked = YES;
+    }
+    
     //设置文字颜色
     UIColor *col = [UIColor colorWithRed:88.0/256 green:150.0/256 blue:192.0/256 alpha:1];
     self.mailField.layer.borderColor = col.CGColor;
@@ -33,21 +72,20 @@
     //设置勾选框
     CGRect frame = CGRectMake(90, 185, 25, 25);
     SSCheckBoxViewStyle style = kSSCheckBoxViewStyleGlossy;
-    BOOL checked = false;
     _cbv = [[SSCheckBoxView alloc] initWithFrame:frame
                                           style:style
                                         checked:checked];
     [self.view addSubview:_cbv];
     [_cbv setStateChangedTarget:self
                       selector:@selector(checkBoxViewChangedState:)];
-    
-    _way = [NSArray arrayWithObjects:@"支出",@"收入",@"借记", nil];
+
     _move = [NSArray arrayWithObjects:_goButton,_rememberText,_cbv,_passwordField,_passwordText, nil];      //从下到上，注意先后顺序
-    moveInstance = 80;
+    moveInstance = MIN(30*[_allAccountInfo count],30*4);        //最多同时显示4个账号名
     
     isOpened=NO;
     [_tb initTableViewDataSourceAndDelegate:^(UITableView *tableView,NSInteger section){
-        return 3;
+        int number = [_accountInfo count];
+        return number;
         
     } setCellForIndexPathBlock:^(UITableView *tableView,NSIndexPath *indexPath){
         EmailSelectionCell *cell=[tableView dequeueReusableCellWithIdentifier:@"EmailSelectionCell"];
@@ -55,11 +93,18 @@
             cell=[[[NSBundle mainBundle]loadNibNamed:@"EmailSelectionCell" owner:self options:nil]objectAtIndex:0];
             [cell setSelectionStyle:UITableViewCellSelectionStyleGray];
         }
-        [cell.lb setText:[NSString stringWithFormat:[NSString stringWithFormat:@"%@",[_way objectAtIndex:indexPath.row]],indexPath.row]];
+        
+        [cell.lb setText:[NSString stringWithFormat:[NSString stringWithFormat:@"%@",[keys objectAtIndex:indexPath.row]],indexPath.row]];
         return cell;
     } setDidSelectRowBlock:^(UITableView *tableView,NSIndexPath *indexPath){
         EmailSelectionCell *cell=(EmailSelectionCell*)[tableView cellForRowAtIndexPath:indexPath];
+        
         _mailField.text=cell.lb.text;
+        _passwordField.text = [_accountInfo objectForKey:cell.lb.text];
+        
+        if (_passwordField.text.length == 0)  _cbv.checked = false;
+        else                                  _cbv.checked = true;
+        
         [_openButton sendActionsForControlEvents:UIControlEventTouchUpInside];
     }];
     
@@ -153,11 +198,25 @@
 }
 
 - (IBAction)login:(id)sender {
-    NSLog(@"1");
+
     NSString *emailText = _mailField.text;
     NSString *passwordText = _passwordField.text;
     
+    //判断邮箱或密码是否为空
+    if(emailText.length == 0 || passwordText.length == 0) {
+        XYShowAlert(@"账号或密码不能为空!");
+        return;
+    }
+    //判断邮箱是否合法
+    if (![self validateEmail:emailText]) {
+        XYShowAlert(@"邮箱输入不合法！");
+        return ;
+    }
+    
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;        //开启状态栏风火轮
+    
+    XYLoadingView *loading = [[XYLoadingView alloc] initWithMessaege:@"正在登录..."];
+    [loading show];
     
     NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:emailText,@"email",passwordText,@"password", nil];
     
@@ -166,32 +225,64 @@
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         
-        UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-//        indicator.center
-        
         NSLog(@"%@",JSON);
         NSString *msg = [JSON objectForKey:@"msg"];
         
         //登录成功,跳转到主界面
-        if ([msg isEqualToString:@"Logged in successfully!"]) {
+        if ([msg isEqualToString:@"Succeeded!"])  {
             
+            //检测是否需要记住密码，把用户和密码信息存入userdedaults中
+            [_allAccountInfo removeObjectForKey:emailText];        
+            if (_cbv.checked) {
+                [_allAccountInfo setObject:passwordText forKey:emailText];
+            }
+            else {
+                [_allAccountInfo setObject:@"" forKey:emailText];
+            }
             
+            [NSKeyedArchiver archiveRootObject:emailText toFile:_archivingFilePath];
             
+            //allAccountInfo对象归档
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setObject:_allAccountInfo forKey:ACCOUNT_INFO];
+            [defaults synchronize];
             
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+            [loading dismiss];
             
+            KOMTabBarViewController *mainTabbar = [self.storyboard instantiateViewControllerWithIdentifier:@"Tabbar"];
+            
+            mainTabbar.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+            
+            //进入主界面
+            [self presentViewController:mainTabbar animated:YES completion:^{
+            }];
         }
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-        
-        
-        
-        
-        
+        else if ([msg isEqualToString:@"Email or password is wrong!"]) {
+            XYShowAlert(@"账户或密码输入错误！");
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+            [loading dismiss];
+            return ;
+        }
+        else if ([msg isEqualToString:@"This user has already logged in!"]) {
+            XYShowAlert(@"该用户已经登录！");
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+            [loading dismiss];
+            return;
+        }
+
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         NSLog(@"%@",error);
     }];
     [operation start];
 }
 
-
+//判断邮箱是否合法函数
+- (BOOL) validateEmail: (NSString *) candidate {
+    NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    
+    return [emailTest evaluateWithObject:candidate];
+}
 
 @end
