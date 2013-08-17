@@ -72,37 +72,20 @@ static NSString *GLOBAL_TIMEFORMAT = @"yyyy-MM-dd HH:mm:ss";
     [self.scrollView addSubview:_timeLabel];
     [self.scrollView addSubview:_accLabel];
     
-    if (_state == NormalState) {
-        [self loadNormalView];
-    }   //载入账户界面
+    if (self.isImported) {
+        [_scrollView setContentOffset:CGPointMake(320,0) animated:NO];
+        [self loadImportedView];
+    }   //账户已导入
     else {
-        if (self.isImported) {
-            [_scrollView setContentOffset:CGPointMake(320,0) animated:NO];
-            [self loadImportedView];
-        }   //账户已导入
-        else {
-            [self loadNotImportedView];
-        }   //账户未导入
-    }
+        [self loadNotImportedView];
+    }   //账户未导入
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     _scrollView.scrollEnabled = NO;
     _scrollView.contentSize = CGSizeMake(640, 48);
-}
-
--(void)loadNormalView {
-    self.view.frame = CGRectMake(0, 0, 320, 38);
-    UILabel *syn = [[UILabel alloc] initWithFrame:CGRectMake(71, 8, 65, 18)];
-    [syn setText:@"同步数据"];
-    [syn setBackgroundColor:[UIColor blackColor]];
-    syn.textColor = [UIColor whiteColor];
-    syn.textAlignment = NSTextAlignmentCenter;
-    syn.font = [UIFont systemFontOfSize:15];
-    
-    self.view.backgroundColor = [UIColor whiteColor];
-    [self.scrollView addSubview:syn];
 }
 
 //渲染已导入界面
@@ -223,8 +206,6 @@ static NSString *GLOBAL_TIMEFORMAT = @"yyyy-MM-dd HH:mm:ss";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    
     UITapGestureRecognizer *closeKeyboard = [[UITapGestureRecognizer alloc]initWithTarget:self  action:@selector(bgTap)];
     [self.scrollView addGestureRecognizer:closeKeyboard];
 }

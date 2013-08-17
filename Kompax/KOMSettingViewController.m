@@ -38,7 +38,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    _tableView.scrollEnabled = NO;
     _emailIsImported = NO;
     _netAccIsImported = NO;
     
@@ -46,20 +45,26 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(scrollUp:) name:@"TableViewScrollUp" object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(scrollDown) name:@"TableViewScrollDown" object:nil];
     
-    //初始化子界面
-    _subVC0 = [[KOMImportViewController alloc]initWithState:NormalState isImported:NO];
-    _subVC2 = [[KOMImportViewController alloc]initWithState:EmailState isImported:_emailIsImported];
-    _subVC3 = [[KOMImportViewController alloc]initWithState:NetAccState isImported:_netAccIsImported];
+    //初始化子界面并加入到自己的子界面数组中
+    _subAccountVC = [[KOMSettingForUserViewController alloc]init];
+    _subEmailVC = [[KOMImportViewController alloc]initWithState:EmailState isImported:_emailIsImported];
+    _subNetAccountVC = [[KOMImportViewController alloc]initWithState:NetAccState isImported:_netAccIsImported];
+    _subOthersVC = [[UIViewController alloc]init];
     
-    _subVC2.emailAccount  = _email_account;
-    _subVC2.password = _email_password;
-    _subVC2.emailDate = self.email_date;
-    _subVC2.father = self;
+    [self addChildViewController:_subOthersVC];
+    [self addChildViewController:_subAccountVC];
+    [self addChildViewController:_subEmailVC];
+    [self addChildViewController:_subNetAccountVC];
     
-    _subVC3.netAccount = _net_account;
-    _subVC3.password = _net_password;
-    _subVC3.netDate = _net_date;
-    _subVC3.father = self;
+    _subEmailVC.emailAccount  = _email_account;
+    _subEmailVC.password = _email_password;
+    _subEmailVC.emailDate = self.email_date;
+    _subEmailVC.father = self;
+    
+    _subNetAccountVC.netAccount = _net_account;
+    _subNetAccountVC.password = _net_password;
+    _subNetAccountVC.netDate = _net_date;
+    _subNetAccountVC.father = self;
 }
 
 //tableview上滚
@@ -109,11 +114,11 @@
 {
     if(indexPath.row == 1 || indexPath.row == 4) return ;
     
-    KOMImportViewController *showVC = nil;
+    UIViewController *showVC = nil;
     
-    if (indexPath.row == 0)         showVC = _subVC0;   //账号界面
-    else if (indexPath.row == 2)    showVC = _subVC2;   //收信箱数据导入
-    else if (indexPath.row == 3)    showVC = _subVC3;   //网络账户数据导入
+    if (indexPath.row == 0)         showVC = _subAccountVC;   //账号界面
+    else if (indexPath.row == 2)    showVC = _subEmailVC;   //收信箱数据导入
+    else if (indexPath.row == 3)    showVC = _subNetAccountVC;   //网络账户数据导入
     
     //展开子视图
     [_tableView openFolderAtIndexPath:indexPath WithContentView:showVC.view
@@ -121,7 +126,7 @@
                                 
                             }
                            closeBlock:^(UIView *subClassView, CFTimeInterval duration, CAMediaTimingFunction *timingFunction){
-                                                     [_tableView becomeFirstResponder];}
+                                                   }
                       completionBlock:^{
                           
                       }];

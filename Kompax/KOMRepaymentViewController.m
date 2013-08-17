@@ -216,13 +216,27 @@
     father.categoryLabel.text = selected.text;
     
     [[NSNotificationCenter defaultCenter]postNotificationName:@"pageSwipeAble" object:nil];
+    
+    CATransition *animation = [CATransition animation];
+    [animation setDuration:0.5f];
+    [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
+    [animation setType:kCATransitionFade];
+    [animation setSubtype:kCAGravityTopRight];
+    [self.parentViewController.view.layer addAnimation:animation forKey:@"back"];
     [self.view removeFromSuperview];
 }
-
 
 //返回借记主界面
 -(void)goBack {
     [[NSNotificationCenter defaultCenter]postNotificationName:@"pageSwipeAble" object:nil];
+    
+    CATransition *animation = [CATransition animation];
+    [animation setDuration:0.5f];
+    [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
+    [animation setType:kCATransitionFade];
+    [animation setSubtype:kCAGravityTopRight];
+    [self.parentViewController.view.layer addAnimation:animation forKey:@"back"];
+    
     [self.view removeFromSuperview];
 
 }

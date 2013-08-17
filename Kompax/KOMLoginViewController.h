@@ -10,6 +10,7 @@
 #import "UITableView+DataSourceBlocks.h"
 #import "TableViewWithBlock.h"
 #import "SSCheckBoxView.h"
+#import "KOMRegisterViewController.h"
 
 @class TableViewWithBlock;
 @interface KOMLoginViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
@@ -36,7 +37,10 @@
 @property(strong,nonatomic) NSMutableDictionary *allAccountInfo;      //已在本地存储的所有用户名与密码信息
 @property(strong,nonatomic) NSMutableDictionary *accountInfo;         //根据当前输入框输入情况显示用户名
 
-@property(copy,nonatomic) NSString *archivingFilePath;                  //归档文件地址
+@property (strong, nonatomic) IBOutlet UIButton *toRegister;
+
+@property(strong,nonatomic) KOMRegisterViewController *registerVC;     //登录界面视图控制器
+
 - (IBAction)login:(id)sender;
 
 @end

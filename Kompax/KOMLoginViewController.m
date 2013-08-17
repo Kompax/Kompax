@@ -5,21 +5,20 @@
 //  Created by Bryan on 13-7-17.
 //  Copyright (c) 2013年 Bryan. All rights reserved.
 //
+#import <QuartzCore/QuartzCore.h>
+#import "KOMAppDelegate.h"
 
 #import "KOMLoginViewController.h"
-#import <QuartzCore/QuartzCore.h>
-#import "SSCheckBoxView.h"
+
+#import "KOMTabBarViewController.h"
 #import "EmailSelectionCell.h"
 #import "SelectionCell.h"
-#import "KOMAppDelegate.h"
-#import "XYAlertViewHeader.h"
-#import "KOMTabBarViewController.h"
-#import "NSMutableDictionary+MutableDeepCopy.h"
 
-#define ACCOUNT_INFO    @"accountInfo"
-#define EMAIL           @"email"
-#define PASSWORD        @"password"
-#define FILENAME        @"currentEmail.arc"
+#import "NSMutableDictionary+MutableDeepCopy.h"
+#import "SSCheckBoxView.h"
+#import "XYAlertViewHeader.h"
+#import "KOMConstants.h"
+
 
 @interface KOMLoginViewController ()
 
@@ -31,9 +30,27 @@
 {
     [super viewDidLoad];
     
-    //从磁盘中读取历史用户信息
+    //显示上一次登录用户名
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    _allAccountInfo = [defaults objectForKey:ACCOUNT_INFO];                 //总数据
+    _mailField.text = [defaults objectForKey:LAST_ACCOUNT];
+    
+    //读取历史用户列表
+    NSFileManager *fileManager = [NSFileManager defaultManager];            //文件管理者
+    
+    KOMAppDelegate *delegate = [[UIApplication sharedApplication]delegate];
+    
+    if ([fileManager fileExistsAtPath:delegate.accountListFilePath]) {
+        //总数据
+        _allAccountInfo = [NSKeyedUnarchiver unarchiveObjectWithFile:delegate.accountListFilePath];
+      
+    }
+    _passwordField.text = [_allAccountInfo objectForKey:_mailField.text];
+    
+/*    注意不可以直接写，_allAccountInfo = [defaults objectForKey:ACCOUNT_INFO];                 
+ *  否则会出现-[__NSCFDictionary SetObject:forKey:]: Mutating Method Sent To Immutable Object 错误
+ *  解决方法见http://qqy620.diandian.com/post/2012-10-15/40039809949
+ */
+    
     
     //按需要初始化allAccountInfo
     if([_allAccountInfo count]==0) {
@@ -42,17 +59,6 @@
     _accountInfo = [_allAccountInfo mutableDeepCopy];                       //搜索出来的分数据
     
     NSArray *keys = [_accountInfo allKeys];
-    
-    //获取归档文件地址
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    _archivingFilePath = [documentsDirectory stringByAppendingPathComponent:FILENAME];
-    NSFileManager *fileManager = [NSFileManager defaultManager];            //文件管理者
-    
-    if ([fileManager fileExistsAtPath:_archivingFilePath]) {
-        NSString *currentEmail = [NSKeyedUnarchiver unarchiveObjectWithFile:_archivingFilePath];
-        _mailField.text = currentEmail;
-    }
     
     _passwordField.text = [_allAccountInfo objectForKey:_mailField.text];
     
@@ -76,9 +82,10 @@
                                           style:style
                                         checked:checked];
     [self.view addSubview:_cbv];
-    [_cbv setStateChangedTarget:self
-                      selector:@selector(checkBoxViewChangedState:)];
-
+    
+    //设置注册按钮跳转
+    [_toRegister addTarget:self action:@selector(jumpToRegister) forControlEvents:UIControlEventTouchUpInside];
+    
     _move = [NSArray arrayWithObjects:_goButton,_rememberText,_cbv,_passwordField,_passwordText, nil];      //从下到上，注意先后顺序
     moveInstance = MIN(30*[_allAccountInfo count],30*4);        //最多同时显示4个账号名
     
@@ -110,20 +117,8 @@
     
     //下拉菜单外观
     [_tb setBackgroundColor:[UIColor whiteColor]];
-    [_tb setAlpha:1];
-    //_tb.separatorStyle = NO;        //设置tableviewcell之间没有横线
     [_tb.layer setBorderColor:[UIColor colorWithRed:90.0/256 green:151.0/256 blue:193.0/256 alpha:1.0].CGColor];
     [_tb.layer setBorderWidth:2];
-    
-}
-
-//勾选框状态改变处理函数
-- (void) checkBoxViewChangedState:(SSCheckBoxView *)cbv
-{
-    if(cbv.checked)
-    NSLog(@"1");
-    else
-        NSLog(@"0");
 }
 
 - (IBAction)changeOpenStatus:(id)sender {
@@ -229,7 +224,7 @@
         NSString *msg = [JSON objectForKey:@"msg"];
         
         //登录成功,跳转到主界面
-        if ([msg isEqualToString:@"Succeeded!"])  {
+        if ([msg isEqualToString:SUCCESS])  {
             
             //检测是否需要记住密码，把用户和密码信息存入userdedaults中
             [_allAccountInfo removeObjectForKey:emailText];        
@@ -240,11 +235,12 @@
                 [_allAccountInfo setObject:@"" forKey:emailText];
             }
             
-            [NSKeyedArchiver archiveRootObject:emailText toFile:_archivingFilePath];
+            [NSKeyedArchiver archiveRootObject:_allAccountInfo toFile:delegate.accountListFilePath];
+
             
-            //allAccountInfo对象归档
+            //NSUserDefaults对象归档
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-            [defaults setObject:_allAccountInfo forKey:ACCOUNT_INFO];
+            [defaults setObject:emailText forKey:LAST_ACCOUNT];
             [defaults synchronize];
             
             [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
@@ -258,13 +254,13 @@
             [self presentViewController:mainTabbar animated:YES completion:^{
             }];
         }
-        else if ([msg isEqualToString:@"Email or password is wrong!"]) {
+        else if ([msg isEqualToString:PASSWORD_WRONG]) {
             XYShowAlert(@"账户或密码输入错误！");
             [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
             [loading dismiss];
             return ;
         }
-        else if ([msg isEqualToString:@"This user has already logged in!"]) {
+        else if ([msg isEqualToString:ALREADY_LOGGIN]) {
             XYShowAlert(@"该用户已经登录！");
             [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
             [loading dismiss];
@@ -272,9 +268,30 @@
         }
 
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        XYShowAlert(@"当前网络出现故障，请稍后再试!");
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+        [loading dismiss];
         NSLog(@"%@",error);
+        return;
     }];
     [operation start];
+}
+
+//跳转到注册页面
+-(void)jumpToRegister {
+    
+    CATransition *animation = [CATransition animation];
+    [animation setDuration:0.7f];
+    [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
+    [animation setType:kCATransitionPush];
+    [animation setSubtype:kCATransitionFromLeft];
+    [animation setRemovedOnCompletion:YES];
+    
+    _registerVC = [self.storyboard instantiateViewControllerWithIdentifier:@"Register"];
+    _registerVC.view.frame = CGRectMake(0, 0, 320, 480);
+    [self addChildViewController:_registerVC];
+    [_registerVC.view.layer addAnimation:animation forKey:@"animation"];
+    [self.view addSubview:_registerVC.view];
 }
 
 //判断邮箱是否合法函数

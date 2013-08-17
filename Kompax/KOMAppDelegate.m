@@ -10,32 +10,30 @@
 #import "AFNetworking.h"
 #import "KOMConstants.h"
 
-static NSString *baseURL = @"http://1.guhaiyue.sinaapp.com/index.php";  //基础URL地址
+//服务器基础地址
+static NSString *baseURL = @"http://1.guhaiyue.sinaapp.com/index.php";
 
 @implementation KOMAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    //初始化并正确设置client的值
-     NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"390840761@qq.com",@"email",@"123456",@"password", nil];
-
+    //初始化本地文件account_list，用于存储用户已登录历史账户信息文件
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    _accountListFilePath = [documentsDirectory stringByAppendingPathComponent:ACCOUNT_LIST];
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];            //文件管理者
+    
+    //第一次运行程序时，初始化account_list文件
+    if (![fileManager fileExistsAtPath:_accountListFilePath]) {
+        [NSKeyedArchiver archiveRootObject:nil toFile:_accountListFilePath];
+    }
+    
+    
+    //初始化网络信息
     NSURL *url = [NSURL URLWithString:baseURL];
     _client = [[AFHTTPClient alloc]initWithBaseURL:url];
     [_client setParameterEncoding:AFJSONParameterEncoding];
-    
-    //Login/login
-    //
-    NSMutableURLRequest *request = [_client requestWithMethod:@"POST" path:@"Register/register" parameters:dict];
-
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        NSLog(@"%@",JSON);
-    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        NSLog(@"%@",error);
-    }];
-    
-    
-    [operation start];
-    
     
     return YES;
 }

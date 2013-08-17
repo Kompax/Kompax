@@ -13,8 +13,6 @@
 #import "KOMConstants.h"
 #import "XYAlertViewHeader.h"
 
-
-
 static NSString *GLOBAL_TIMEFORMAT = @"yyyy-MM-dd HH:mm:ss";
 
 @interface KOMDebitViewController ()
@@ -187,6 +185,8 @@ static NSString *GLOBAL_TIMEFORMAT = @"yyyy-MM-dd HH:mm:ss";
     transition.type = kCATransitionFade;
     transition.subtype = kCAGravityTopRight;
     [[self.view layer] addAnimation:transition forKey:@"transision"];
+    
+    [self addChildViewController:_repayVC];
     [self.view addSubview:_repayVC.view];
     
     //当前金额不为0时，直接传入还款界面中
@@ -194,7 +194,6 @@ static NSString *GLOBAL_TIMEFORMAT = @"yyyy-MM-dd HH:mm:ss";
         _repayVC.cashText.text = _cash.text;
     }
 }
-
 
 #pragma mark - KOMAccountTableViewController delegate
 -(void)changeAccount:(NSString *)text {

@@ -136,7 +136,6 @@ static NSString* UITableViewDelegateBlocksKey = @"UITableViewDelegateBlocksKey";
 -(UITableViewCellEditingStyle)tableView:(UITableView*)tableView editingStyleForRowAtIndexPath:(NSIndexPath*)indexPath  {
     UITableViewEditingStyleForRowAtIndexPathBlock block = [self.editingStyleForRowAtIndexPathBlock copy];
     UITableViewCellEditingStyle result = block(tableView, indexPath);
-   
     return result;
 }
 

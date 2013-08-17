@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "UIFolderTableView.h"
 #import "KOMImportViewController.h"
+#import "KOMSettingForUserViewController.h"
 
 @interface KOMSettingViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
@@ -27,9 +28,10 @@
 @property (copy,nonatomic ) NSString *net_password;         //网络账户密码
 @property (strong,nonatomic) NSDate *net_date;              //网络账户登录时间
 
-@property (strong,nonatomic) KOMImportViewController *subVC0; //0号子界面
-@property (strong,nonatomic) KOMImportViewController *subVC2; //2号子界面
-@property (strong,nonatomic) KOMImportViewController *subVC3; //3号子界面
+@property (strong,nonatomic) KOMSettingForUserViewController *subAccountVC;        //"账号"子界面
+@property (strong,nonatomic) KOMImportViewController *subEmailVC; //"收件箱数据导入"子界面
+@property (strong,nonatomic) KOMImportViewController *subNetAccountVC; //"网络账号数据导入"子界面
+@property (strong,nonatomic) UIViewController *subOthersVC;         //"其他"子界面
 
 -(void)expand:(UIViewController *)subVC atIndexPath:indexPath;
 

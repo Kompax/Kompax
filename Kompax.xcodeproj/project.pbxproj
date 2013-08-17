@@ -219,6 +219,7 @@
 		939A665D179D191700F55B41 /* UITableView+DataSourceBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 939A6656179D191700F55B41 /* UITableView+DataSourceBlocks.m */; };
 		939A665E179D191700F55B41 /* UITableView+DelegateBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 939A6658179D191700F55B41 /* UITableView+DelegateBlocks.m */; };
 		939A665F179D191700F55B41 /* TableViewWithBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 939A665A179D191700F55B41 /* TableViewWithBlock.m */; };
+		939DABE717BDB9100042D66F /* KOMSettingForUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 939DABE617BDB9100042D66F /* KOMSettingForUserViewController.m */; };
 		939E9DC4179904BC00C7307F /* KOMRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 939E9DC3179904BC00C7307F /* KOMRegisterViewController.m */; };
 		939F17B217AD34640076DFA4 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 939F17B117AD34640076DFA4 /* Default.png */; };
 		939F17B417AD346C0076DFA4 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 939F17B317AD346C0076DFA4 /* Default@2x.png */; };
@@ -242,6 +243,7 @@
 		93B3782917A372D2003541D7 /* KOMDebitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B3782817A372D2003541D7 /* KOMDebitViewController.m */; };
 		93B3782C17A372D9003541D7 /* KOMCreditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B3782B17A372D9003541D7 /* KOMCreditViewController.m */; };
 		93B37B05179CDD1700D26898 /* KOMAccountingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B37B04179CDD1700D26898 /* KOMAccountingViewController.m */; };
+		93D71F2617BF1EB000C4B013 /* KOMSettingAccountListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D71F2517BF1EB000C4B013 /* KOMSettingAccountListTableViewController.m */; };
 		93E9B5AC179E4C600077F807 /* KOMMainPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E9B5AB179E4C600077F807 /* KOMMainPageViewController.m */; };
 		93E9B5AF179E4D1C0077F807 /* KOMTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E9B5AE179E4D1C0077F807 /* KOMTabBarViewController.m */; };
 		93E9B5B2179E53690077F807 /* KOMPlanningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E9B5B1179E53680077F807 /* KOMPlanningViewController.m */; };
@@ -505,6 +507,8 @@
 		939A6658179D191700F55B41 /* UITableView+DelegateBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+DelegateBlocks.m"; sourceTree = "<group>"; };
 		939A6659179D191700F55B41 /* TableViewWithBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewWithBlock.h; sourceTree = "<group>"; };
 		939A665A179D191700F55B41 /* TableViewWithBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewWithBlock.m; sourceTree = "<group>"; };
+		939DABE517BDB9100042D66F /* KOMSettingForUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOMSettingForUserViewController.h; sourceTree = "<group>"; };
+		939DABE617BDB9100042D66F /* KOMSettingForUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KOMSettingForUserViewController.m; sourceTree = "<group>"; };
 		939E9DC2179904BC00C7307F /* KOMRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOMRegisterViewController.h; sourceTree = "<group>"; };
 		939E9DC3179904BC00C7307F /* KOMRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KOMRegisterViewController.m; sourceTree = "<group>"; };
 		939F17B117AD34640076DFA4 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -543,6 +547,8 @@
 		93B3782B17A372D9003541D7 /* KOMCreditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KOMCreditViewController.m; sourceTree = "<group>"; };
 		93B37B03179CDD1700D26898 /* KOMAccountingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOMAccountingViewController.h; sourceTree = "<group>"; };
 		93B37B04179CDD1700D26898 /* KOMAccountingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KOMAccountingViewController.m; sourceTree = "<group>"; };
+		93D71F2417BF1EB000C4B013 /* KOMSettingAccountListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOMSettingAccountListTableViewController.h; sourceTree = "<group>"; };
+		93D71F2517BF1EB000C4B013 /* KOMSettingAccountListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KOMSettingAccountListTableViewController.m; sourceTree = "<group>"; };
 		93E9B5AA179E4C600077F807 /* KOMMainPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOMMainPageViewController.h; sourceTree = "<group>"; };
 		93E9B5AB179E4C600077F807 /* KOMMainPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KOMMainPageViewController.m; sourceTree = "<group>"; };
 		93E9B5AD179E4D1C0077F807 /* KOMTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOMTabBarViewController.h; sourceTree = "<group>"; };
@@ -1076,6 +1082,10 @@
 				93A0DBBF17B88EA800450B4C /* KOMSettingTableViewCell.m */,
 				93A0DBC317B8B05D00450B4C /* KOMImportViewController.h */,
 				93A0DBC417B8B05D00450B4C /* KOMImportViewController.m */,
+				939DABE517BDB9100042D66F /* KOMSettingForUserViewController.h */,
+				939DABE617BDB9100042D66F /* KOMSettingForUserViewController.m */,
+				93D71F2417BF1EB000C4B013 /* KOMSettingAccountListTableViewController.h */,
+				93D71F2517BF1EB000C4B013 /* KOMSettingAccountListTableViewController.m */,
 			);
 			name = Setting;
 			sourceTree = "<group>";
@@ -1455,6 +1465,8 @@
 				93A0DBC017B88EA800450B4C /* KOMSettingTableViewCell.m in Sources */,
 				93A0DBC517B8B05E00450B4C /* KOMImportViewController.m in Sources */,
 				93AD22B117BBE40700543304 /* NSMutableDictionary+MutableDeepCopy.m in Sources */,
+				939DABE717BDB9100042D66F /* KOMSettingForUserViewController.m in Sources */,
+				93D71F2617BF1EB000C4B013 /* KOMSettingAccountListTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

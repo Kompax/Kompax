@@ -9,8 +9,7 @@
 #import <UIKit/UIKit.h>
 
 typedef enum {
-    NormalState = 0,
-    EmailState,
+    EmailState = 0,
     NetAccState
 } VCState;
 
