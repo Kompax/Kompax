@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9300399117BFADAE0020779B /* PlanningItem.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9300399017BFADAE0020779B /* PlanningItem.plist */; };
 		9322505717A976B60085B3D0 /* 超支.png in Resources */ = {isa = PBXBuildFile; fileRef = 9322505317A976B60085B3D0 /* 超支.png */; };
 		9322505817A976B60085B3D0 /* 超支@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9322505417A976B60085B3D0 /* 超支@2x.png */; };
 		9322505C17A976E20085B3D0 /* 图标.png in Resources */ = {isa = PBXBuildFile; fileRef = 9322505B17A976E20085B3D0 /* 图标.png */; };
@@ -227,7 +228,7 @@
 		93A0DBBA17B884D600450B4C /* FolderCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A0DBB517B884D600450B4C /* FolderCoverView.m */; };
 		93A0DBBB17B884D600450B4C /* UIFolderTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A0DBB717B884D600450B4C /* UIFolderTableView.m */; };
 		93A0DBBC17B884D600450B4C /* UIView+screenshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A0DBB917B884D600450B4C /* UIView+screenshot.m */; };
-		93A0DBC017B88EA800450B4C /* KOMSettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A0DBBF17B88EA800450B4C /* KOMSettingTableViewCell.m */; };
+		93A0DBC017B88EA800450B4C /* KOMFolderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A0DBBF17B88EA800450B4C /* KOMFolderTableViewCell.m */; };
 		93A0DBC217B897E200450B4C /* SettingItem.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93A0DBC117B897E200450B4C /* SettingItem.plist */; };
 		93A0DBC517B8B05E00450B4C /* KOMImportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A0DBC417B8B05D00450B4C /* KOMImportViewController.m */; };
 		93A26F2517B08F5D0062E6D4 /* KOMRepaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A26F2417B08F5D0062E6D4 /* KOMRepaymentViewController.m */; };
@@ -243,7 +244,12 @@
 		93B3782917A372D2003541D7 /* KOMDebitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B3782817A372D2003541D7 /* KOMDebitViewController.m */; };
 		93B3782C17A372D9003541D7 /* KOMCreditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B3782B17A372D9003541D7 /* KOMCreditViewController.m */; };
 		93B37B05179CDD1700D26898 /* KOMAccountingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B37B04179CDD1700D26898 /* KOMAccountingViewController.m */; };
+		93D20DAC17E021B700799B28 /* KOMRiskResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D20DAB17E021B700799B28 /* KOMRiskResultViewController.m */; };
+		93D20DAE17E0482000799B28 /* RiskAnalysis.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93D20DAD17E0482000799B28 /* RiskAnalysis.plist */; };
 		93D71F2617BF1EB000C4B013 /* KOMSettingAccountListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D71F2517BF1EB000C4B013 /* KOMSettingAccountListTableViewController.m */; };
+		93DA50DC17C005CF009D1534 /* KOMFinancialModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 93DA50DB17C005CF009D1534 /* KOMFinancialModel.cpp */; };
+		93DA50DE17C00E83009D1534 /* RiskQuestionnaire.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93DA50DD17C00E83009D1534 /* RiskQuestionnaire.plist */; };
+		93DA50E117C013EB009D1534 /* KOMRiskQuestionnaireViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DA50E017C013EB009D1534 /* KOMRiskQuestionnaireViewController.m */; };
 		93E9B5AC179E4C600077F807 /* KOMMainPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E9B5AB179E4C600077F807 /* KOMMainPageViewController.m */; };
 		93E9B5AF179E4D1C0077F807 /* KOMTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E9B5AE179E4D1C0077F807 /* KOMTabBarViewController.m */; };
 		93E9B5B2179E53690077F807 /* KOMPlanningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E9B5B1179E53680077F807 /* KOMPlanningViewController.m */; };
@@ -256,6 +262,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9300399017BFADAE0020779B /* PlanningItem.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PlanningItem.plist; sourceTree = "<group>"; };
 		9322505317A976B60085B3D0 /* 超支.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "超支.png"; sourceTree = "<group>"; };
 		9322505417A976B60085B3D0 /* 超支@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "超支@2x.png"; sourceTree = "<group>"; };
 		9322505B17A976E20085B3D0 /* 图标.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "图标.png"; sourceTree = "<group>"; };
@@ -520,8 +527,8 @@
 		93A0DBB717B884D600450B4C /* UIFolderTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFolderTableView.m; sourceTree = "<group>"; };
 		93A0DBB817B884D600450B4C /* UIView+screenshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+screenshot.h"; sourceTree = "<group>"; };
 		93A0DBB917B884D600450B4C /* UIView+screenshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+screenshot.m"; sourceTree = "<group>"; };
-		93A0DBBE17B88EA800450B4C /* KOMSettingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOMSettingTableViewCell.h; sourceTree = "<group>"; };
-		93A0DBBF17B88EA800450B4C /* KOMSettingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KOMSettingTableViewCell.m; sourceTree = "<group>"; };
+		93A0DBBE17B88EA800450B4C /* KOMFolderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOMFolderTableViewCell.h; sourceTree = "<group>"; };
+		93A0DBBF17B88EA800450B4C /* KOMFolderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KOMFolderTableViewCell.m; sourceTree = "<group>"; };
 		93A0DBC117B897E200450B4C /* SettingItem.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SettingItem.plist; sourceTree = "<group>"; };
 		93A0DBC317B8B05D00450B4C /* KOMImportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOMImportViewController.h; sourceTree = "<group>"; };
 		93A0DBC417B8B05D00450B4C /* KOMImportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KOMImportViewController.m; sourceTree = "<group>"; };
@@ -547,8 +554,16 @@
 		93B3782B17A372D9003541D7 /* KOMCreditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KOMCreditViewController.m; sourceTree = "<group>"; };
 		93B37B03179CDD1700D26898 /* KOMAccountingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOMAccountingViewController.h; sourceTree = "<group>"; };
 		93B37B04179CDD1700D26898 /* KOMAccountingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KOMAccountingViewController.m; sourceTree = "<group>"; };
+		93D20DAA17E021B700799B28 /* KOMRiskResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOMRiskResultViewController.h; sourceTree = "<group>"; };
+		93D20DAB17E021B700799B28 /* KOMRiskResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KOMRiskResultViewController.m; sourceTree = "<group>"; };
+		93D20DAD17E0482000799B28 /* RiskAnalysis.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RiskAnalysis.plist; sourceTree = "<group>"; };
 		93D71F2417BF1EB000C4B013 /* KOMSettingAccountListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOMSettingAccountListTableViewController.h; sourceTree = "<group>"; };
 		93D71F2517BF1EB000C4B013 /* KOMSettingAccountListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KOMSettingAccountListTableViewController.m; sourceTree = "<group>"; };
+		93DA50DA17C005A7009D1534 /* KOMFinancialModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOMFinancialModel.h; sourceTree = "<group>"; };
+		93DA50DB17C005CF009D1534 /* KOMFinancialModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = KOMFinancialModel.cpp; sourceTree = "<group>"; };
+		93DA50DD17C00E83009D1534 /* RiskQuestionnaire.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RiskQuestionnaire.plist; sourceTree = "<group>"; };
+		93DA50DF17C013EB009D1534 /* KOMRiskQuestionnaireViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOMRiskQuestionnaireViewController.h; sourceTree = "<group>"; };
+		93DA50E017C013EB009D1534 /* KOMRiskQuestionnaireViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KOMRiskQuestionnaireViewController.m; sourceTree = "<group>"; };
 		93E9B5AA179E4C600077F807 /* KOMMainPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOMMainPageViewController.h; sourceTree = "<group>"; };
 		93E9B5AB179E4C600077F807 /* KOMMainPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KOMMainPageViewController.m; sourceTree = "<group>"; };
 		93E9B5AD179E4D1C0077F807 /* KOMTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOMTabBarViewController.h; sourceTree = "<group>"; };
@@ -583,6 +598,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9300398F17BFA92B0020779B /* Planning */ = {
+			isa = PBXGroup;
+			children = (
+				93E9B5B0179E53680077F807 /* KOMPlanningViewController.h */,
+				93E9B5B1179E53680077F807 /* KOMPlanningViewController.m */,
+				93DA50DF17C013EB009D1534 /* KOMRiskQuestionnaireViewController.h */,
+				93DA50E017C013EB009D1534 /* KOMRiskQuestionnaireViewController.m */,
+				93D20DAA17E021B700799B28 /* KOMRiskResultViewController.h */,
+				93D20DAB17E021B700799B28 /* KOMRiskResultViewController.m */,
+			);
+			name = Planning;
+			sourceTree = "<group>";
+		};
 		9322505217A976A20085B3D0 /* 补充元素 */ = {
 			isa = PBXGroup;
 			children = (
@@ -669,6 +697,8 @@
 		934A64591796476A00E28837 /* Kompax */ = {
 			isa = PBXGroup;
 			children = (
+				93DA50D917C0052E009D1534 /* FinancialModel */,
+				9300398F17BFA92B0020779B /* Planning */,
 				93A0DBBD17B88E7500450B4C /* Setting */,
 				9323A91D17AABEC50022974B /* Drawing */,
 				93B3782D17A3C777003541D7 /* UserInfo */,
@@ -678,6 +708,8 @@
 				934A64631796476A00E28837 /* KOMAppDelegate.m */,
 				9331F3D417A927CE008FA3C5 /* KOMConstants.h */,
 				934A646B1796476A00E28837 /* mainstoryboard.storyboard */,
+				93A0DBBE17B88EA800450B4C /* KOMFolderTableViewCell.h */,
+				93A0DBBF17B88EA800450B4C /* KOMFolderTableViewCell.m */,
 				93E9B5B9179E53B70077F807 /* KOMUserViewController.h */,
 				93E9B5BA179E53B80077F807 /* KOMUserViewController.m */,
 				934A646E1796476A00E28837 /* KOMLoginViewController.h */,
@@ -688,8 +720,6 @@
 				93E9B5AE179E4D1C0077F807 /* KOMTabBarViewController.m */,
 				93E9B5AA179E4C600077F807 /* KOMMainPageViewController.h */,
 				93E9B5AB179E4C600077F807 /* KOMMainPageViewController.m */,
-				93E9B5B0179E53680077F807 /* KOMPlanningViewController.h */,
-				93E9B5B1179E53680077F807 /* KOMPlanningViewController.m */,
 				93E9B5B3179E53760077F807 /* KOMStatisticViewController.h */,
 				93E9B5B4179E53760077F807 /* KOMStatisticViewController.m */,
 				9389E99C17A06F020080DE7C /* KOMPagingSwipeViewController.h */,
@@ -712,6 +742,9 @@
 				934A64671796476A00E28837 /* Default@2x.png */,
 				934A64691796476A00E28837 /* Default-568h@2x.png */,
 				93A0DBC117B897E200450B4C /* SettingItem.plist */,
+				9300399017BFADAE0020779B /* PlanningItem.plist */,
+				93DA50DD17C00E83009D1534 /* RiskQuestionnaire.plist */,
+				93D20DAD17E0482000799B28 /* RiskAnalysis.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1078,8 +1111,6 @@
 			children = (
 				93E9B5B6179E539B0077F807 /* KOMSettingViewController.h */,
 				93E9B5B7179E539B0077F807 /* KOMSettingViewController.m */,
-				93A0DBBE17B88EA800450B4C /* KOMSettingTableViewCell.h */,
-				93A0DBBF17B88EA800450B4C /* KOMSettingTableViewCell.m */,
 				93A0DBC317B8B05D00450B4C /* KOMImportViewController.h */,
 				93A0DBC417B8B05D00450B4C /* KOMImportViewController.m */,
 				939DABE517BDB9100042D66F /* KOMSettingForUserViewController.h */,
@@ -1161,6 +1192,15 @@
 				9323A92517AAEAAF0022974B /* KOMCreditorTableViewController.m */,
 			);
 			name = UserInfo;
+			sourceTree = "<group>";
+		};
+		93DA50D917C0052E009D1534 /* FinancialModel */ = {
+			isa = PBXGroup;
+			children = (
+				93DA50DA17C005A7009D1534 /* KOMFinancialModel.h */,
+				93DA50DB17C005CF009D1534 /* KOMFinancialModel.cpp */,
+			);
+			name = FinancialModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1403,6 +1443,9 @@
 				939F17B417AD346C0076DFA4 /* Default@2x.png in Resources */,
 				939F17B617AD34710076DFA4 /* Default-568h@2x.png in Resources */,
 				93A0DBC217B897E200450B4C /* SettingItem.plist in Resources */,
+				9300399117BFADAE0020779B /* PlanningItem.plist in Resources */,
+				93DA50DE17C00E83009D1534 /* RiskQuestionnaire.plist in Resources */,
+				93D20DAE17E0482000799B28 /* RiskAnalysis.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1462,11 +1505,14 @@
 				93A0DBBA17B884D600450B4C /* FolderCoverView.m in Sources */,
 				93A0DBBB17B884D600450B4C /* UIFolderTableView.m in Sources */,
 				93A0DBBC17B884D600450B4C /* UIView+screenshot.m in Sources */,
-				93A0DBC017B88EA800450B4C /* KOMSettingTableViewCell.m in Sources */,
+				93A0DBC017B88EA800450B4C /* KOMFolderTableViewCell.m in Sources */,
 				93A0DBC517B8B05E00450B4C /* KOMImportViewController.m in Sources */,
 				93AD22B117BBE40700543304 /* NSMutableDictionary+MutableDeepCopy.m in Sources */,
 				939DABE717BDB9100042D66F /* KOMSettingForUserViewController.m in Sources */,
 				93D71F2617BF1EB000C4B013 /* KOMSettingAccountListTableViewController.m in Sources */,
+				93DA50DC17C005CF009D1534 /* KOMFinancialModel.cpp in Sources */,
+				93DA50E117C013EB009D1534 /* KOMRiskQuestionnaireViewController.m in Sources */,
+				93D20DAC17E021B700799B28 /* KOMRiskResultViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

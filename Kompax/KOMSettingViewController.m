@@ -7,7 +7,7 @@
 //
 
 #import "KOMSettingViewController.h"
-#import "KOMSettingTableViewCell.h"
+#import "KOMFolderTableViewCell.h"
 
 @interface KOMSettingViewController ()
 
@@ -92,10 +92,10 @@
 {
     static NSString *CellIdentifier = @"item_cell";
     
-    KOMSettingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    KOMFolderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (cell == nil) {
-        cell = [[KOMSettingTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
+        cell = [[KOMFolderTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
                                      reuseIdentifier:CellIdentifier] ;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         

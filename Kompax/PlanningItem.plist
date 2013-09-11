@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>imageName</key>
+		<string>test</string>
+		<key>title</key>
+		<string>风险测试</string>
+	</dict>
+	<dict>
+		<key>imageName</key>
+		<string>planning</string>
+		<key>title</key>
+		<string>理财目标设置</string>
+	</dict>
+	<dict>
+		<key>imageName</key>
+		<string>pie</string>
+		<key>title</key>
+		<string>家庭理财分析</string>
+	</dict>
+	<dict>
+		<key>imageName</key>
+		<string>persons</string>
+		<key>title</key>
+		<string>预约理财师</string>
+	</dict>
+</array>
+</plist>

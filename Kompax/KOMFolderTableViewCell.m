@@ -6,9 +6,9 @@
 //  Copyright (c) 2013年 Bryan. All rights reserved.
 //
 
-#import "KOMSettingTableViewCell.h"
+#import "KOMFolderTableViewCell.h"
 
-@implementation KOMSettingTableViewCell
+@implementation KOMFolderTableViewCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

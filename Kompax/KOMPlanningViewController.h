@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIFolderTableView.h"
+#import "KOMRiskQuestionnaireViewController.h"
 
-@interface KOMPlanningViewController : UIViewController
+@interface KOMPlanningViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+
+@property (strong,nonatomic) NSArray *items;
+@property (strong,nonatomic) IBOutlet UIFolderTableView *tableView;
+@property (strong,nonatomic) KOMRiskQuestionnaireViewController *questionView;
 
 @end

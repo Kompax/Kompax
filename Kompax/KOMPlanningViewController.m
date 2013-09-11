@@ -7,6 +7,8 @@
 //
 
 #import "KOMPlanningViewController.h"
+#import "KOMFolderTableViewCell.h"
+#import "KOMRiskQuestionnaireViewController.h"
 
 @interface KOMPlanningViewController ()
 
@@ -23,11 +25,93 @@
     return self;
 }
 
+-(NSArray *)items
+{
+    if (_items == nil){
+        
+        NSURL *url = [[NSBundle mainBundle] URLForResource:@"PlanningItem" withExtension:@"plist"];
+        _items = [NSArray arrayWithContentsOfURL:url];
+    }
+    return _items;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _questionView = [[KOMRiskQuestionnaireViewController alloc] init];
     
 	// Do any additional setup after loading the view.
+}
+
+#pragma mark - Table view data source
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.items count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"item_cell";
+    
+    KOMFolderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if (cell == nil) {
+        cell = [[KOMFolderTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
+                                             reuseIdentifier:CellIdentifier] ;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+    }
+    
+    NSDictionary *temp = [self.items objectAtIndex:indexPath.row];
+    cell.logo.image = [UIImage imageNamed:[[temp objectForKey:@"imageName"] stringByAppendingString:@".png"]];
+    cell.title.text = [temp objectForKey:@"title"];
+    
+    return cell;
+}
+
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSUInteger row = [indexPath row];
+    
+    UIViewController *showVC = nil;
+    
+    if (row == 0) {
+        showVC = _questionView;
+        _tableView.scrollEnabled = NO;  //打开问卷时使得tableview无法滚动
+    }
+    
+    
+    //展开子视图
+    [_tableView openFolderAtIndexPath:indexPath WithContentView:showVC.view
+                            openBlock:^(UIView *subClassView, CFTimeInterval duration, CAMediaTimingFunction *timingFunction){
+                                
+                            }
+                           closeBlock:^(UIView *subClassView, CFTimeInterval duration, CAMediaTimingFunction *timingFunction){
+                           }
+                      completionBlock:^{
+                            _tableView.scrollEnabled = YES; //tableview恢复滚动
+                      }];
+}
+
+-(void)expand:(UIViewController *)subVC atIndexPath:indexPath {
+    [_tableView openFolderAtIndexPath:indexPath WithContentView:subVC.view
+                            openBlock:^(UIView *subClassView, CFTimeInterval duration, CAMediaTimingFunction *timingFunction){
+                                
+                            }
+                           closeBlock:^(UIView *subClassView, CFTimeInterval duration, CAMediaTimingFunction *timingFunction){
+                               [_tableView becomeFirstResponder];}
+                      completionBlock:^{
+                          
+                      }];
+    
+}
+
+-(CGFloat)tableView:(UIFolderTableView *)tableView xForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 40;
 }
 
 - (void)didReceiveMemoryWarning

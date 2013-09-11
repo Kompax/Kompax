@@ -35,7 +35,7 @@ typedef enum SSCheckBoxViewStyle_ {
     kSSCheckBoxViewStylesCount
 } SSCheckBoxViewStyle;
 
-@interface SSCheckBoxView: UIView
+@interface SSCheckBoxView: UIControl
 {
     SSCheckBoxViewStyle style;
     BOOL checked;

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>type</key>
+		<string>冒险型</string>
+		<key>description</key>
+		<string>    高度追求资金的增值，愿意接受可能出现的大幅波动，以换取资金高成长的可能性。为了最大限度地获得资金增值，常常将大部分资金投入风险较高的品种。
+    在个性上，非常自信，追求极度的成功，常常不留后路以激励自己向前，不惜冒失败的风险。
+
+</string>
+		<key>bear</key>
+		<integer>0</integer>
+		<key>tolerate</key>
+		<integer>0</integer>
+	</dict>
+	<dict>
+		<key>type</key>
+		<string>积极型</string>
+		<key>description</key>
+		<string>    专注于投资的长期增值。常常会为提高投资收益而采取一些行动，并愿意为此承受较大的风险。    在个性上，通常很有信心，具有很强的商业创造技能，知道自己要什么并甘于冒风险去追求，但是通常也不会忘记给自己留条后路。</string>
+		<key>bear</key>
+		<integer>1</integer>
+		<key>tolerate</key>
+		<integer>2</integer>
+	</dict>
+	<dict>
+		<key>type</key>
+		<string>稳健型</string>
+		<key>description</key>
+		<string>    渴望有较高的投资收益，但又不愿承受较大的风险；可以承受一定的投资波动，但是希望自己的投资风险小于市场的整体风险，因此希望投资收益长期、稳步地增长。    在个性上，有较高的追求目标，而且对风险有清醒的认识，但通常不会采取激进的办法去达到目标，而总是在事情的两极之间找到相对妥协、均衡的方法，因而您通常能缓慢但稳定地进步。</string>
+		<key>bear</key>
+		<integer>1</integer>
+		<key>tolerate</key>
+		<integer>3</integer>
+	</dict>
+	<dict>
+		<key>type</key>
+		<string>消极型</string>
+		<key>description</key>
+		<string>    稳定是重要考虑因素，希望投资在保证本金安全的基础上能有一些增值收入。希望投资有一定的收益，但常常因回避风险而最终不会采取任何行动。    在个性上，不会很明显地害怕冒险，但承受风险的能力有限。</string>
+		<key>bear</key>
+		<integer>3</integer>
+		<key>tolerate</key>
+		<integer>4</integer>
+	</dict>
+	<dict>
+		<key>type</key>
+		<string>保守型</string>
+		<key>description</key>
+		<string>    保护本金不受损蚀和保持资产的流动性是首要目标。对投资的态度是希望投资收益极度稳定，不愿用高风险来换取收益，通常不太在意资金是否有较大增值。    在个性上，本能地抗拒冒险，不抱碰运气的侥幸心理，通常不愿意承受投资波动对心理的煎熬，追求稳定。</string>
+		<key>bear</key>
+		<integer>5</integer>
+		<key>tolerate</key>
+		<integer>5</integer>
+	</dict>
+</array>
+</plist>

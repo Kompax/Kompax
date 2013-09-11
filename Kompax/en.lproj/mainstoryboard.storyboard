@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="rFr-Ei-Qjn">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -55,9 +55,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="b79-VA-Uy7" firstAttribute="top" secondItem="RSv-u8-Dsc" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="EHp-AS-Fs4"/>
                             <constraint firstItem="uI3-h6-cgj" firstAttribute="top" secondItem="w5u-cQ-Oun" secondAttribute="top" constant="13" id="N5X-lR-rja"/>
                             <constraint firstItem="RSv-u8-Dsc" firstAttribute="top" secondItem="w5u-cQ-Oun" secondAttribute="top" constant="14" id="aHx-Ft-FHM"/>
+                            <constraint firstItem="b79-VA-Uy7" firstAttribute="top" secondItem="w5u-cQ-Oun" secondAttribute="top" constant="60" id="bMH-Q1-3p7"/>
                             <constraint firstItem="RSv-u8-Dsc" firstAttribute="leading" secondItem="w5u-cQ-Oun" secondAttribute="leading" constant="26" id="f5w-p2-GiJ"/>
                             <constraint firstItem="b79-VA-Uy7" firstAttribute="trailing" secondItem="w5u-cQ-Oun" secondAttribute="trailing" type="default" id="o79-3w-Wza"/>
                             <constraint firstItem="b79-VA-Uy7" firstAttribute="leading" secondItem="w5u-cQ-Oun" secondAttribute="leading" type="default" id="pv1-s2-Tvl"/>
@@ -159,13 +159,52 @@
         <!--PlanningViewController-->
         <scene sceneID="rZG-rW-0Ai">
             <objects>
-                <viewController storyboardIdentifier="Planning" useStoryboardIdentifierAsRestorationIdentifier="YES" id="i2Z-ql-M4Z" userLabel="PlanningViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Planning" useStoryboardIdentifierAsRestorationIdentifier="YES" id="i2Z-ql-M4Z" userLabel="PlanningViewController" customClass="KOMPlanningViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ahw-6j-I2t">
                         <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="AJg-a7-iGT" customClass="UIFolderTableView">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="371" id="Z66-AD-ZPN"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="i2Z-ql-M4Z" id="cMh-ge-NbB"/>
+                                    <outlet property="delegate" destination="i2Z-ql-M4Z" id="1zK-KX-fcG"/>
+                                    <outlet property="folderDelegate" destination="i2Z-ql-M4Z" id="F7E-6B-l0f"/>
+                                </connections>
+                            </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="title.png" translatesAutoresizingMaskIntoConstraints="NO" id="EvI-mX-xV0">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="0Kv-RP-xax"/>
+                                    <constraint firstAttribute="width" constant="149" id="lTz-H2-cNq"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="规划" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RBo-Ht-7UZ">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="81" id="OdT-Ej-Eao"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="STHeitiSC-Medium" family="Heiti SC" pointSize="36"/>
+                                <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="AJg-a7-iGT" firstAttribute="top" secondItem="ahw-6j-I2t" secondAttribute="top" constant="55" id="BpX-qL-raU"/>
+                            <constraint firstItem="RBo-Ht-7UZ" firstAttribute="top" secondItem="ahw-6j-I2t" secondAttribute="top" constant="13" id="Ftp-wC-vnd"/>
+                            <constraint firstItem="AJg-a7-iGT" firstAttribute="trailing" secondItem="ahw-6j-I2t" secondAttribute="trailing" type="default" id="VXx-YD-tig"/>
+                            <constraint firstItem="RBo-Ht-7UZ" firstAttribute="leading" secondItem="ahw-6j-I2t" secondAttribute="leading" constant="26" id="WdR-5e-3aG"/>
+                            <constraint firstItem="EvI-mX-xV0" firstAttribute="leading" secondItem="ahw-6j-I2t" secondAttribute="leading" type="default" id="YQm-Hu-iPd"/>
+                            <constraint firstItem="RBo-Ht-7UZ" firstAttribute="top" secondItem="EvI-mX-xV0" secondAttribute="top" type="default" id="aHK-rN-lvG"/>
+                            <constraint firstItem="AJg-a7-iGT" firstAttribute="leading" secondItem="ahw-6j-I2t" secondAttribute="leading" type="default" id="hvv-TJ-Eox"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Planning" image="1.png" id="dBQ-FA-weD"/>
+                    <connections>
+                        <outlet property="tableView" destination="AJg-a7-iGT" id="Qe2-uh-8qt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aer-oa-Nl2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2062,169 +2101,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <image name="时间.png" width="17" height="17"/>
         <image name="注册－确认按钮.png" width="105" height="33"/>
     </resources>
-    <classes>
-        <class className="KOMAccountTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/KOMAccountTableViewController.h"/>
-        </class>
-        <class className="KOMAccountingViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/KOMAccountingViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backgroundTap:"/>
-                <relationship kind="action" name="changeOpenStatus:"/>
-                <relationship kind="outlet" name="accView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="inputTextField" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="openButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tb" candidateClass="TableViewWithBlock"/>
-            </relationships>
-        </class>
-        <class className="KOMBarDraw" superclassName="UIControl">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/KOMBarDraw.h"/>
-        </class>
-        <class className="KOMCategoryTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/KOMCategoryTableViewController.h"/>
-        </class>
-        <class className="KOMCircleDraw" superclassName="UIControl">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/KOMCircleDraw.h"/>
-        </class>
-        <class className="KOMCostViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/KOMCostViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="bgTap:"/>
-                <relationship kind="outlet" name="accountLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="cash" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="categoryLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="memberLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="KOMCreditViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/KOMCreditViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="accountLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="cash" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="debitorLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="memberLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="KOMCreditorTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/KOMCreditorTableViewController.h"/>
-        </class>
-        <class className="KOMDebitViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/KOMDebitViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="bgTap:"/>
-                <relationship kind="outlet" name="accountLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="cash" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="categoryLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="creditorLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="KOMDebitorTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/KOMDebitorTableViewController.h"/>
-        </class>
-        <class className="KOMIncomeCategoryTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/KOMIncomeCategoryTableViewController.h"/>
-        </class>
-        <class className="KOMIncomeViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/KOMIncomeViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="bgTap:"/>
-                <relationship kind="outlet" name="accountLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="cash" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="categoryLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="memberLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="KOMLoginViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/KOMLoginViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="login:"/>
-                <relationship kind="outlet" name="goButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="mailField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="openButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="passwordField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="passwordText" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="rememberText" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="tb" candidateClass="TableViewWithBlock"/>
-                <relationship kind="outlet" name="toRegister" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="KOMMainPageViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/KOMMainPageViewController.h"/>
-        </class>
-        <class className="KOMMemberTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/KOMMemberTableViewController.h"/>
-        </class>
-        <class className="KOMNavViewController" superclassName="UINavigationController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/KOMNavViewController.h"/>
-        </class>
-        <class className="KOMPagingSwipeViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/KOMPagingSwipeViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="KOMRegisterViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/KOMRegisterViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backgroundTap:"/>
-                <relationship kind="action" name="confirm:"/>
-                <relationship kind="action" name="textFieldDoneEditing:"/>
-                <relationship kind="outlet" name="againText" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="mailText" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="passwordText" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="KOMRepaymentViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/KOMRepaymentViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="cashText" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="category_1" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="category_2" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="category_3" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="firstBorrowTimeText" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="firstLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="freLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="interestText" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="monthLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="repayYearsText" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="seasonLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="yearLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="KOMSettingViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/KOMSettingViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="tableView" candidateClass="UIFolderTableView"/>
-            </relationships>
-        </class>
-        <class className="KOMTabBarViewController" superclassName="UITabBarController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/KOMTabBarViewController.h"/>
-        </class>
-        <class className="KOMTimePickerViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/KOMTimePickerViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="timePicker" candidateClass="UIDatePicker"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="TableViewWithBlock" superclassName="UITableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TableViewWithBlock.h"/>
-        </class>
-        <class className="UIFolderTableView" superclassName="UITableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIFolderTableView.h"/>
-            <relationships>
-                <relationship kind="outlet" name="folderDelegate"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

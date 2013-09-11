@@ -60,22 +60,22 @@
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "NSZombieEnabled"
-            value = "NO"
+            value = "YES"
             isEnabled = "NO">
          </EnvironmentVariable>
          <EnvironmentVariable
             key = "MallocStackLoggingNoCompact"
-            value = "NO"
+            value = "YES"
             isEnabled = "NO">
          </EnvironmentVariable>
          <EnvironmentVariable
             key = "MallocStackLogging"
-            value = "NO"
+            value = "YES"
             isEnabled = "NO">
          </EnvironmentVariable>
          <EnvironmentVariable
             key = "NSDebugEnabled"
-            value = "NO"
+            value = "YES"
             isEnabled = "NO">
          </EnvironmentVariable>
       </EnvironmentVariables>

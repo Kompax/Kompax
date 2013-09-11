@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KOMSettingTableViewCell : UITableViewCell
+@interface KOMFolderTableViewCell : UITableViewCell
 
 @property (strong, nonatomic) UIImageView *logo;
 @property (strong,nonatomic) UILabel *title;
