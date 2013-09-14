@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "UIFolderTableView.h"
 #import "KOMRiskQuestionnaireViewController.h"
+#import "KOMGoalSettingViewController.h"
 
 @interface KOMPlanningViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
 @property (strong,nonatomic) NSArray *items;
 @property (strong,nonatomic) IBOutlet UIFolderTableView *tableView;
 @property (strong,nonatomic) KOMRiskQuestionnaireViewController *questionView;
+@property (strong,nonatomic) KOMGoalSettingViewController *goalView;
 
 @end

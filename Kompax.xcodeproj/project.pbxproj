@@ -8,6 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		9300399117BFADAE0020779B /* PlanningItem.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9300399017BFADAE0020779B /* PlanningItem.plist */; };
+		93091E0517E2A04E004F9513 /* KOMHouseGoalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93091E0317E2A04E004F9513 /* KOMHouseGoalViewController.m */; };
+		93091E0617E2A04E004F9513 /* KOMHouseGoalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93091E0417E2A04E004F9513 /* KOMHouseGoalViewController.xib */; };
+		9316DC2617E2D8F500189C81 /* KOMCarGoalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9316DC2417E2D8F500189C81 /* KOMCarGoalViewController.m */; };
+		9316DC2717E2D8F500189C81 /* KOMCarGoalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9316DC2517E2D8F500189C81 /* KOMCarGoalViewController.xib */; };
+		9316DC2B17E2DACB00189C81 /* KOMInsuranceGoalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9316DC2917E2DACA00189C81 /* KOMInsuranceGoalViewController.m */; };
+		9316DC2C17E2DACB00189C81 /* KOMInsuranceGoalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9316DC2A17E2DACA00189C81 /* KOMInsuranceGoalViewController.xib */; };
+		931D93B617E3E6DC00B1AC89 /* KOMRetireGoalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 931D93B417E3E6DC00B1AC89 /* KOMRetireGoalViewController.m */; };
+		931D93B717E3E6DC00B1AC89 /* KOMRetireGoalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 931D93B517E3E6DC00B1AC89 /* KOMRetireGoalViewController.xib */; };
+		931D93BB17E3E7D500B1AC89 /* KOMEducateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 931D93B917E3E7D500B1AC89 /* KOMEducateViewController.m */; };
+		931D93BC17E3E7D500B1AC89 /* KOMEducateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 931D93BA17E3E7D500B1AC89 /* KOMEducateViewController.xib */; };
+		931D93C017E3EB2100B1AC89 /* KOMFeasibilityAnaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 931D93BE17E3EB2100B1AC89 /* KOMFeasibilityAnaViewController.m */; };
 		9322505717A976B60085B3D0 /* 超支.png in Resources */ = {isa = PBXBuildFile; fileRef = 9322505317A976B60085B3D0 /* 超支.png */; };
 		9322505817A976B60085B3D0 /* 超支@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9322505417A976B60085B3D0 /* 超支@2x.png */; };
 		9322505C17A976E20085B3D0 /* 图标.png in Resources */ = {isa = PBXBuildFile; fileRef = 9322505B17A976E20085B3D0 /* 图标.png */; };
@@ -37,6 +48,10 @@
 		934A64701796476A00E28837 /* KOMLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 934A646F1796476A00E28837 /* KOMLoginViewController.m */; };
 		9366415717A76A6900DBA0E1 /* KOMCategoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9366415617A76A6900DBA0E1 /* KOMCategoryTableViewController.m */; };
 		9366415A17A7B33900DBA0E1 /* KOMBarDraw.m in Sources */ = {isa = PBXBuildFile; fileRef = 9366415917A7B33900DBA0E1 /* KOMBarDraw.m */; };
+		936DF9CA17E14D2B00DA9FC6 /* KOMGoalSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 936DF9C917E14D2B00DA9FC6 /* KOMGoalSettingViewController.m */; };
+		936DF9CD17E151F800DA9FC6 /* KOMFirstGoalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 936DF9CC17E151F800DA9FC6 /* KOMFirstGoalViewController.m */; };
+		936DF9D317E152E500DA9FC6 /* FMMoveTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 936DF9D017E152E500DA9FC6 /* FMMoveTableView.m */; };
+		936DF9D417E152E500DA9FC6 /* FMMoveTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 936DF9D217E152E500DA9FC6 /* FMMoveTableViewCell.m */; };
 		9372BFA8179FEC8A00AB984B /* alert@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9372BEF5179FEC8900AB984B /* alert@2x.png */; };
 		9372BFA9179FEC8A00AB984B /* arrow-black-down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9372BEF6179FEC8900AB984B /* arrow-black-down@2x.png */; };
 		9372BFAA179FEC8A00AB984B /* arrow-orange-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9372BEF7179FEC8900AB984B /* arrow-orange-small@2x.png */; };
@@ -263,6 +278,23 @@
 
 /* Begin PBXFileReference section */
 		9300399017BFADAE0020779B /* PlanningItem.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PlanningItem.plist; sourceTree = "<group>"; };
+		93091E0217E2A04E004F9513 /* KOMHouseGoalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOMHouseGoalViewController.h; sourceTree = "<group>"; };
+		93091E0317E2A04E004F9513 /* KOMHouseGoalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KOMHouseGoalViewController.m; sourceTree = "<group>"; };
+		93091E0417E2A04E004F9513 /* KOMHouseGoalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KOMHouseGoalViewController.xib; sourceTree = "<group>"; };
+		9316DC2317E2D8F500189C81 /* KOMCarGoalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOMCarGoalViewController.h; sourceTree = "<group>"; };
+		9316DC2417E2D8F500189C81 /* KOMCarGoalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KOMCarGoalViewController.m; sourceTree = "<group>"; };
+		9316DC2517E2D8F500189C81 /* KOMCarGoalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KOMCarGoalViewController.xib; sourceTree = "<group>"; };
+		9316DC2817E2DACA00189C81 /* KOMInsuranceGoalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOMInsuranceGoalViewController.h; sourceTree = "<group>"; };
+		9316DC2917E2DACA00189C81 /* KOMInsuranceGoalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KOMInsuranceGoalViewController.m; sourceTree = "<group>"; };
+		9316DC2A17E2DACA00189C81 /* KOMInsuranceGoalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KOMInsuranceGoalViewController.xib; sourceTree = "<group>"; };
+		931D93B317E3E6DC00B1AC89 /* KOMRetireGoalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOMRetireGoalViewController.h; sourceTree = "<group>"; };
+		931D93B417E3E6DC00B1AC89 /* KOMRetireGoalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KOMRetireGoalViewController.m; sourceTree = "<group>"; };
+		931D93B517E3E6DC00B1AC89 /* KOMRetireGoalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KOMRetireGoalViewController.xib; sourceTree = "<group>"; };
+		931D93B817E3E7D500B1AC89 /* KOMEducateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOMEducateViewController.h; sourceTree = "<group>"; };
+		931D93B917E3E7D500B1AC89 /* KOMEducateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KOMEducateViewController.m; sourceTree = "<group>"; };
+		931D93BA17E3E7D500B1AC89 /* KOMEducateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KOMEducateViewController.xib; sourceTree = "<group>"; };
+		931D93BD17E3EB2100B1AC89 /* KOMFeasibilityAnaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOMFeasibilityAnaViewController.h; sourceTree = "<group>"; };
+		931D93BE17E3EB2100B1AC89 /* KOMFeasibilityAnaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KOMFeasibilityAnaViewController.m; sourceTree = "<group>"; };
 		9322505317A976B60085B3D0 /* 超支.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "超支.png"; sourceTree = "<group>"; };
 		9322505417A976B60085B3D0 /* 超支@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "超支@2x.png"; sourceTree = "<group>"; };
 		9322505B17A976E20085B3D0 /* 图标.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "图标.png"; sourceTree = "<group>"; };
@@ -311,6 +343,14 @@
 		9366415617A76A6900DBA0E1 /* KOMCategoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KOMCategoryTableViewController.m; sourceTree = "<group>"; };
 		9366415817A7B33900DBA0E1 /* KOMBarDraw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOMBarDraw.h; sourceTree = "<group>"; };
 		9366415917A7B33900DBA0E1 /* KOMBarDraw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KOMBarDraw.m; sourceTree = "<group>"; };
+		936DF9C817E14D2B00DA9FC6 /* KOMGoalSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOMGoalSettingViewController.h; sourceTree = "<group>"; };
+		936DF9C917E14D2B00DA9FC6 /* KOMGoalSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KOMGoalSettingViewController.m; sourceTree = "<group>"; };
+		936DF9CB17E151F800DA9FC6 /* KOMFirstGoalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOMFirstGoalViewController.h; sourceTree = "<group>"; };
+		936DF9CC17E151F800DA9FC6 /* KOMFirstGoalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KOMFirstGoalViewController.m; sourceTree = "<group>"; };
+		936DF9CF17E152E500DA9FC6 /* FMMoveTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMMoveTableView.h; sourceTree = "<group>"; };
+		936DF9D017E152E500DA9FC6 /* FMMoveTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMMoveTableView.m; sourceTree = "<group>"; };
+		936DF9D117E152E500DA9FC6 /* FMMoveTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMMoveTableViewCell.h; sourceTree = "<group>"; };
+		936DF9D217E152E500DA9FC6 /* FMMoveTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMMoveTableViewCell.m; sourceTree = "<group>"; };
 		9372BEF5179FEC8900AB984B /* alert@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alert@2x.png"; sourceTree = "<group>"; };
 		9372BEF6179FEC8900AB984B /* arrow-black-down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-black-down@2x.png"; sourceTree = "<group>"; };
 		9372BEF7179FEC8900AB984B /* arrow-orange-small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-orange-small@2x.png"; sourceTree = "<group>"; };
@@ -601,14 +641,51 @@
 		9300398F17BFA92B0020779B /* Planning */ = {
 			isa = PBXGroup;
 			children = (
+				931D93C217E3EB2900B1AC89 /* FeasibilityAnalysis */,
+				93091E0117E2A026004F9513 /* GoalView */,
 				93E9B5B0179E53680077F807 /* KOMPlanningViewController.h */,
 				93E9B5B1179E53680077F807 /* KOMPlanningViewController.m */,
 				93DA50DF17C013EB009D1534 /* KOMRiskQuestionnaireViewController.h */,
 				93DA50E017C013EB009D1534 /* KOMRiskQuestionnaireViewController.m */,
 				93D20DAA17E021B700799B28 /* KOMRiskResultViewController.h */,
 				93D20DAB17E021B700799B28 /* KOMRiskResultViewController.m */,
+				936DF9C817E14D2B00DA9FC6 /* KOMGoalSettingViewController.h */,
+				936DF9C917E14D2B00DA9FC6 /* KOMGoalSettingViewController.m */,
+				936DF9CB17E151F800DA9FC6 /* KOMFirstGoalViewController.h */,
+				936DF9CC17E151F800DA9FC6 /* KOMFirstGoalViewController.m */,
 			);
 			name = Planning;
+			sourceTree = "<group>";
+		};
+		93091E0117E2A026004F9513 /* GoalView */ = {
+			isa = PBXGroup;
+			children = (
+				93091E0217E2A04E004F9513 /* KOMHouseGoalViewController.h */,
+				93091E0317E2A04E004F9513 /* KOMHouseGoalViewController.m */,
+				93091E0417E2A04E004F9513 /* KOMHouseGoalViewController.xib */,
+				9316DC2317E2D8F500189C81 /* KOMCarGoalViewController.h */,
+				9316DC2417E2D8F500189C81 /* KOMCarGoalViewController.m */,
+				9316DC2517E2D8F500189C81 /* KOMCarGoalViewController.xib */,
+				9316DC2817E2DACA00189C81 /* KOMInsuranceGoalViewController.h */,
+				9316DC2917E2DACA00189C81 /* KOMInsuranceGoalViewController.m */,
+				9316DC2A17E2DACA00189C81 /* KOMInsuranceGoalViewController.xib */,
+				931D93B317E3E6DC00B1AC89 /* KOMRetireGoalViewController.h */,
+				931D93B417E3E6DC00B1AC89 /* KOMRetireGoalViewController.m */,
+				931D93B517E3E6DC00B1AC89 /* KOMRetireGoalViewController.xib */,
+				931D93B817E3E7D500B1AC89 /* KOMEducateViewController.h */,
+				931D93B917E3E7D500B1AC89 /* KOMEducateViewController.m */,
+				931D93BA17E3E7D500B1AC89 /* KOMEducateViewController.xib */,
+			);
+			name = GoalView;
+			sourceTree = "<group>";
+		};
+		931D93C217E3EB2900B1AC89 /* FeasibilityAnalysis */ = {
+			isa = PBXGroup;
+			children = (
+				931D93BD17E3EB2100B1AC89 /* KOMFeasibilityAnaViewController.h */,
+				931D93BE17E3EB2100B1AC89 /* KOMFeasibilityAnaViewController.m */,
+			);
+			name = FeasibilityAnalysis;
 			sourceTree = "<group>";
 		};
 		9322505217A976A20085B3D0 /* 补充元素 */ = {
@@ -747,6 +824,18 @@
 				93D20DAD17E0482000799B28 /* RiskAnalysis.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		936DF9CE17E152E500DA9FC6 /* FMFramework */ = {
+			isa = PBXGroup;
+			children = (
+				936DF9CF17E152E500DA9FC6 /* FMMoveTableView.h */,
+				936DF9D017E152E500DA9FC6 /* FMMoveTableView.m */,
+				936DF9D117E152E500DA9FC6 /* FMMoveTableViewCell.h */,
+				936DF9D217E152E500DA9FC6 /* FMMoveTableViewCell.m */,
+			);
+			name = FMFramework;
+			path = ../FMFramework;
 			sourceTree = "<group>";
 		};
 		9372BEF3179FEC8900AB984B /* 界面元素7.22 */ = {
@@ -1082,6 +1171,7 @@
 		939E9DC817992D2600C7307F /* Ancillary File */ = {
 			isa = PBXGroup;
 			children = (
+				936DF9CE17E152E500DA9FC6 /* FMFramework */,
 				93A0DBB317B884D600450B4C /* Floder */,
 				9322505F17A98DEB0085B3D0 /* XYAlertView */,
 				939A6651179D190700F55B41 /* PullDown */,
@@ -1446,6 +1536,11 @@
 				9300399117BFADAE0020779B /* PlanningItem.plist in Resources */,
 				93DA50DE17C00E83009D1534 /* RiskQuestionnaire.plist in Resources */,
 				93D20DAE17E0482000799B28 /* RiskAnalysis.plist in Resources */,
+				93091E0617E2A04E004F9513 /* KOMHouseGoalViewController.xib in Resources */,
+				9316DC2717E2D8F500189C81 /* KOMCarGoalViewController.xib in Resources */,
+				9316DC2C17E2DACB00189C81 /* KOMInsuranceGoalViewController.xib in Resources */,
+				931D93B717E3E6DC00B1AC89 /* KOMRetireGoalViewController.xib in Resources */,
+				931D93BC17E3E7D500B1AC89 /* KOMEducateViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1513,6 +1608,16 @@
 				93DA50DC17C005CF009D1534 /* KOMFinancialModel.cpp in Sources */,
 				93DA50E117C013EB009D1534 /* KOMRiskQuestionnaireViewController.m in Sources */,
 				93D20DAC17E021B700799B28 /* KOMRiskResultViewController.m in Sources */,
+				936DF9CA17E14D2B00DA9FC6 /* KOMGoalSettingViewController.m in Sources */,
+				936DF9CD17E151F800DA9FC6 /* KOMFirstGoalViewController.m in Sources */,
+				936DF9D317E152E500DA9FC6 /* FMMoveTableView.m in Sources */,
+				936DF9D417E152E500DA9FC6 /* FMMoveTableViewCell.m in Sources */,
+				93091E0517E2A04E004F9513 /* KOMHouseGoalViewController.m in Sources */,
+				9316DC2617E2D8F500189C81 /* KOMCarGoalViewController.m in Sources */,
+				9316DC2B17E2DACB00189C81 /* KOMInsuranceGoalViewController.m in Sources */,
+				931D93B617E3E6DC00B1AC89 /* KOMRetireGoalViewController.m in Sources */,
+				931D93BB17E3E7D500B1AC89 /* KOMEducateViewController.m in Sources */,
+				931D93C017E3EB2100B1AC89 /* KOMFeasibilityAnaViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

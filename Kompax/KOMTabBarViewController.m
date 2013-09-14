@@ -13,6 +13,7 @@
 #import "KOMUserViewController.h"
 #import "KOMPagingSwipeViewController.h"
 #import "KOMMainPageViewController.h"
+#import "KOMAppDelegate.h"
 
 @interface KOMTabBarViewController ()
 
@@ -47,7 +48,20 @@
     
     NSArray *viewControllers = @[planVC,staVC,pageVC,userVC,setVC];
     [self setViewControllers:viewControllers];
-    self.selectedIndex = 2;  
+    self.selectedIndex = 2;
+    
+//测试进入主界面后的数据获取
+//    KOMAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+//    NSMutableURLRequest *request = [delegate.client requestWithMethod:@"POST" path:@"UserAccountAction/getUserAccount" parameters:nil];
+//    
+//    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+//        
+//        NSLog(@"%@",JSON);
+//               
+//    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+//        NSLog(@"%@",error);
+//    }];
+//    [operation start];
 }
 
 //载入自定义tabbar
@@ -71,7 +85,7 @@
         button.tag = index;
         
         //初始化的时候中间按钮为蓝色背景
-        NSString *buttonName ;
+        NSString *buttonName;
         if (index==2)
             buttonName = [NSString stringWithFormat:@"%d'",index+1];
         else

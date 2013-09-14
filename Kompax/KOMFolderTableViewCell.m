@@ -16,11 +16,11 @@
     if (self) {
         // Initialization code
         self.contentView.backgroundColor = [UIColor whiteColor];
-        self.logo = [[UIImageView alloc] initWithFrame:CGRectMake(35, 20, 21, 23)];
+        self.logo = [[UIImageView alloc] initWithFrame:CGRectMake(35, 20, 23, 23)];
         self.logo.backgroundColor = [UIColor clearColor];
         [self.contentView addSubview:self.logo];
         
-        self.title = [[UILabel alloc] initWithFrame:CGRectMake(70, 20, 128, 20)] ;
+        self.title = [[UILabel alloc] initWithFrame:CGRectMake(70, 23, 128, 20)] ;
         self.title.font = [UIFont boldSystemFontOfSize:16.0f];
         self.title.textColor = [UIColor colorWithRed:97/255.0 green:151/255.0 blue:191/255.0 alpha:1.0];
         self.title.backgroundColor = [UIColor clearColor];

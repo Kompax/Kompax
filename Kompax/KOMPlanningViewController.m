@@ -35,10 +35,16 @@
     return _items;
 }
 
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    _goalView = [self.storyboard instantiateViewControllerWithIdentifier:@"GoalView"];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     _questionView = [[KOMRiskQuestionnaireViewController alloc] init];
+    _goalView = [self.storyboard instantiateViewControllerWithIdentifier:@"GoalView"];
     
 	// Do any additional setup after loading the view.
 }
@@ -60,7 +66,6 @@
         cell = [[KOMFolderTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
                                              reuseIdentifier:CellIdentifier] ;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
     }
     
     NSDictionary *temp = [self.items objectAtIndex:indexPath.row];
@@ -82,7 +87,14 @@
         showVC = _questionView;
         _tableView.scrollEnabled = NO;  //打开问卷时使得tableview无法滚动
     }
-    
+    else if (row == 1) {
+        _goalView.view.frame = CGRectMake(0, 0, 320, 330);
+        showVC = _goalView;
+         _tableView.scrollEnabled = NO;
+    }
+    else {
+        return;
+    }
     
     //展开子视图
     [_tableView openFolderAtIndexPath:indexPath WithContentView:showVC.view
