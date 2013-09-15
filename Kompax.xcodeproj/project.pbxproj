@@ -10,10 +10,14 @@
 		9300399117BFADAE0020779B /* PlanningItem.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9300399017BFADAE0020779B /* PlanningItem.plist */; };
 		93091E0517E2A04E004F9513 /* KOMHouseGoalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93091E0317E2A04E004F9513 /* KOMHouseGoalViewController.m */; };
 		93091E0617E2A04E004F9513 /* KOMHouseGoalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93091E0417E2A04E004F9513 /* KOMHouseGoalViewController.xib */; };
+		930BB52817E5440F004EFE88 /* KOMCreditInforViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 930BB52717E5440F004EFE88 /* KOMCreditInforViewController.m */; };
+		930BB52B17E545FF004EFE88 /* KOMNetInforViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 930BB52A17E545FF004EFE88 /* KOMNetInforViewController.m */; };
 		9316DC2617E2D8F500189C81 /* KOMCarGoalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9316DC2417E2D8F500189C81 /* KOMCarGoalViewController.m */; };
 		9316DC2717E2D8F500189C81 /* KOMCarGoalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9316DC2517E2D8F500189C81 /* KOMCarGoalViewController.xib */; };
 		9316DC2B17E2DACB00189C81 /* KOMInsuranceGoalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9316DC2917E2DACA00189C81 /* KOMInsuranceGoalViewController.m */; };
 		9316DC2C17E2DACB00189C81 /* KOMInsuranceGoalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9316DC2A17E2DACA00189C81 /* KOMInsuranceGoalViewController.xib */; };
+		9317488717E4E05500AB4CE5 /* KOMDepositInforViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9317488617E4E05500AB4CE5 /* KOMDepositInforViewController.m */; };
+		9317488A17E4E09500AB4CE5 /* KOMUserBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9317488917E4E09500AB4CE5 /* KOMUserBaseViewController.m */; };
 		931D93B617E3E6DC00B1AC89 /* KOMRetireGoalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 931D93B417E3E6DC00B1AC89 /* KOMRetireGoalViewController.m */; };
 		931D93B717E3E6DC00B1AC89 /* KOMRetireGoalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 931D93B517E3E6DC00B1AC89 /* KOMRetireGoalViewController.xib */; };
 		931D93BB17E3E7D500B1AC89 /* KOMEducateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 931D93B917E3E7D500B1AC89 /* KOMEducateViewController.m */; };
@@ -259,6 +263,10 @@
 		93B3782917A372D2003541D7 /* KOMDebitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B3782817A372D2003541D7 /* KOMDebitViewController.m */; };
 		93B3782C17A372D9003541D7 /* KOMCreditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B3782B17A372D9003541D7 /* KOMCreditViewController.m */; };
 		93B37B05179CDD1700D26898 /* KOMAccountingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B37B04179CDD1700D26898 /* KOMAccountingViewController.m */; };
+		93C8BB8417E547A3008BFE63 /* KOMStockInforViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C8BB8317E547A3008BFE63 /* KOMStockInforViewController.m */; };
+		93C8BB8717E5492C008BFE63 /* KOMManagingInforViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C8BB8617E5492C008BFE63 /* KOMManagingInforViewController.m */; };
+		93C8BB8A17E54A10008BFE63 /* KOMReceiveInforViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C8BB8917E54A10008BFE63 /* KOMReceiveInforViewController.m */; };
+		93C8BB8D17E54ACC008BFE63 /* KOMPayInforViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C8BB8C17E54ACC008BFE63 /* KOMPayInforViewController.m */; };
 		93D20DAC17E021B700799B28 /* KOMRiskResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D20DAB17E021B700799B28 /* KOMRiskResultViewController.m */; };
 		93D20DAE17E0482000799B28 /* RiskAnalysis.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93D20DAD17E0482000799B28 /* RiskAnalysis.plist */; };
 		93D71F2617BF1EB000C4B013 /* KOMSettingAccountListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D71F2517BF1EB000C4B013 /* KOMSettingAccountListTableViewController.m */; };
@@ -281,12 +289,20 @@
 		93091E0217E2A04E004F9513 /* KOMHouseGoalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOMHouseGoalViewController.h; sourceTree = "<group>"; };
 		93091E0317E2A04E004F9513 /* KOMHouseGoalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KOMHouseGoalViewController.m; sourceTree = "<group>"; };
 		93091E0417E2A04E004F9513 /* KOMHouseGoalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KOMHouseGoalViewController.xib; sourceTree = "<group>"; };
+		930BB52617E5440F004EFE88 /* KOMCreditInforViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOMCreditInforViewController.h; sourceTree = "<group>"; };
+		930BB52717E5440F004EFE88 /* KOMCreditInforViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KOMCreditInforViewController.m; sourceTree = "<group>"; };
+		930BB52917E545FF004EFE88 /* KOMNetInforViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOMNetInforViewController.h; sourceTree = "<group>"; };
+		930BB52A17E545FF004EFE88 /* KOMNetInforViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KOMNetInforViewController.m; sourceTree = "<group>"; };
 		9316DC2317E2D8F500189C81 /* KOMCarGoalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOMCarGoalViewController.h; sourceTree = "<group>"; };
 		9316DC2417E2D8F500189C81 /* KOMCarGoalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KOMCarGoalViewController.m; sourceTree = "<group>"; };
 		9316DC2517E2D8F500189C81 /* KOMCarGoalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KOMCarGoalViewController.xib; sourceTree = "<group>"; };
 		9316DC2817E2DACA00189C81 /* KOMInsuranceGoalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOMInsuranceGoalViewController.h; sourceTree = "<group>"; };
 		9316DC2917E2DACA00189C81 /* KOMInsuranceGoalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KOMInsuranceGoalViewController.m; sourceTree = "<group>"; };
 		9316DC2A17E2DACA00189C81 /* KOMInsuranceGoalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KOMInsuranceGoalViewController.xib; sourceTree = "<group>"; };
+		9317488517E4E05500AB4CE5 /* KOMDepositInforViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOMDepositInforViewController.h; sourceTree = "<group>"; };
+		9317488617E4E05500AB4CE5 /* KOMDepositInforViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KOMDepositInforViewController.m; sourceTree = "<group>"; };
+		9317488817E4E09500AB4CE5 /* KOMUserBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOMUserBaseViewController.h; sourceTree = "<group>"; };
+		9317488917E4E09500AB4CE5 /* KOMUserBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KOMUserBaseViewController.m; sourceTree = "<group>"; };
 		931D93B317E3E6DC00B1AC89 /* KOMRetireGoalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOMRetireGoalViewController.h; sourceTree = "<group>"; };
 		931D93B417E3E6DC00B1AC89 /* KOMRetireGoalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KOMRetireGoalViewController.m; sourceTree = "<group>"; };
 		931D93B517E3E6DC00B1AC89 /* KOMRetireGoalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KOMRetireGoalViewController.xib; sourceTree = "<group>"; };
@@ -594,6 +610,14 @@
 		93B3782B17A372D9003541D7 /* KOMCreditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KOMCreditViewController.m; sourceTree = "<group>"; };
 		93B37B03179CDD1700D26898 /* KOMAccountingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOMAccountingViewController.h; sourceTree = "<group>"; };
 		93B37B04179CDD1700D26898 /* KOMAccountingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KOMAccountingViewController.m; sourceTree = "<group>"; };
+		93C8BB8217E547A3008BFE63 /* KOMStockInforViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOMStockInforViewController.h; sourceTree = "<group>"; };
+		93C8BB8317E547A3008BFE63 /* KOMStockInforViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KOMStockInforViewController.m; sourceTree = "<group>"; };
+		93C8BB8517E5492C008BFE63 /* KOMManagingInforViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOMManagingInforViewController.h; sourceTree = "<group>"; };
+		93C8BB8617E5492C008BFE63 /* KOMManagingInforViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KOMManagingInforViewController.m; sourceTree = "<group>"; };
+		93C8BB8817E54A10008BFE63 /* KOMReceiveInforViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOMReceiveInforViewController.h; sourceTree = "<group>"; };
+		93C8BB8917E54A10008BFE63 /* KOMReceiveInforViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KOMReceiveInforViewController.m; sourceTree = "<group>"; };
+		93C8BB8B17E54ACC008BFE63 /* KOMPayInforViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOMPayInforViewController.h; sourceTree = "<group>"; };
+		93C8BB8C17E54ACC008BFE63 /* KOMPayInforViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KOMPayInforViewController.m; sourceTree = "<group>"; };
 		93D20DAA17E021B700799B28 /* KOMRiskResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOMRiskResultViewController.h; sourceTree = "<group>"; };
 		93D20DAB17E021B700799B28 /* KOMRiskResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KOMRiskResultViewController.m; sourceTree = "<group>"; };
 		93D20DAD17E0482000799B28 /* RiskAnalysis.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RiskAnalysis.plist; sourceTree = "<group>"; };
@@ -677,6 +701,29 @@
 				931D93BA17E3E7D500B1AC89 /* KOMEducateViewController.xib */,
 			);
 			name = GoalView;
+			sourceTree = "<group>";
+		};
+		9317488417E4D49E00AB4CE5 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				9317488517E4E05500AB4CE5 /* KOMDepositInforViewController.h */,
+				9317488617E4E05500AB4CE5 /* KOMDepositInforViewController.m */,
+				9317488817E4E09500AB4CE5 /* KOMUserBaseViewController.h */,
+				9317488917E4E09500AB4CE5 /* KOMUserBaseViewController.m */,
+				930BB52617E5440F004EFE88 /* KOMCreditInforViewController.h */,
+				930BB52717E5440F004EFE88 /* KOMCreditInforViewController.m */,
+				930BB52917E545FF004EFE88 /* KOMNetInforViewController.h */,
+				930BB52A17E545FF004EFE88 /* KOMNetInforViewController.m */,
+				93C8BB8217E547A3008BFE63 /* KOMStockInforViewController.h */,
+				93C8BB8317E547A3008BFE63 /* KOMStockInforViewController.m */,
+				93C8BB8517E5492C008BFE63 /* KOMManagingInforViewController.h */,
+				93C8BB8617E5492C008BFE63 /* KOMManagingInforViewController.m */,
+				93C8BB8817E54A10008BFE63 /* KOMReceiveInforViewController.h */,
+				93C8BB8917E54A10008BFE63 /* KOMReceiveInforViewController.m */,
+				93C8BB8B17E54ACC008BFE63 /* KOMPayInforViewController.h */,
+				93C8BB8C17E54ACC008BFE63 /* KOMPayInforViewController.m */,
+			);
+			name = User;
 			sourceTree = "<group>";
 		};
 		931D93C217E3EB2900B1AC89 /* FeasibilityAnalysis */ = {
@@ -774,6 +821,7 @@
 		934A64591796476A00E28837 /* Kompax */ = {
 			isa = PBXGroup;
 			children = (
+				9317488417E4D49E00AB4CE5 /* User */,
 				93DA50D917C0052E009D1534 /* FinancialModel */,
 				9300398F17BFA92B0020779B /* Planning */,
 				93A0DBBD17B88E7500450B4C /* Setting */,
@@ -1618,6 +1666,14 @@
 				931D93B617E3E6DC00B1AC89 /* KOMRetireGoalViewController.m in Sources */,
 				931D93BB17E3E7D500B1AC89 /* KOMEducateViewController.m in Sources */,
 				931D93C017E3EB2100B1AC89 /* KOMFeasibilityAnaViewController.m in Sources */,
+				9317488717E4E05500AB4CE5 /* KOMDepositInforViewController.m in Sources */,
+				9317488A17E4E09500AB4CE5 /* KOMUserBaseViewController.m in Sources */,
+				930BB52817E5440F004EFE88 /* KOMCreditInforViewController.m in Sources */,
+				930BB52B17E545FF004EFE88 /* KOMNetInforViewController.m in Sources */,
+				93C8BB8417E547A3008BFE63 /* KOMStockInforViewController.m in Sources */,
+				93C8BB8717E5492C008BFE63 /* KOMManagingInforViewController.m in Sources */,
+				93C8BB8A17E54A10008BFE63 /* KOMReceiveInforViewController.m in Sources */,
+				93C8BB8D17E54ACC008BFE63 /* KOMPayInforViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
